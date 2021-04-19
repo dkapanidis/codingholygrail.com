@@ -1,0 +1,43 @@
+/* Semantic UI implemented with TailwindCSS */
+
+.field {
+  @apply pt-2;
+}
+
+/* Input */
+.ui.input input {
+  @apply appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight;
+}
+.ui.input input:focus {
+  @apply outline-none border border-blue-400;
+}
+
+/* Error Input */
+.error .ui.input input {
+  @apply border rounded border-red-500;
+}
+
+/* Error Message */
+.ui.pointing.above.prompt.label {
+  @apply text-xs italic font-extralight text-right;
+}
+
+/* Dropdown Field */
+.ui.selection.dropdown {
+  @apply appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight;
+}
+
+.ui.active.visible.selection.dropdown {
+  @apply border border-blue-400;
+}
+
+/* Field Label */
+.field>label {
+  @apply font-semibold text-xs;
+}
+
+/* Required Field */
+.required.field>label:after{
+  content: "*";
+  @apply ml-1 text-xs text-red-500 align-top;
+}
