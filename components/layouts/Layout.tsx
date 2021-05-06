@@ -52,7 +52,7 @@ export default function Layout({ children, title }: LayoutProps) {
 
         <meta property="fb:admins" content="" />
       </Head>
-      <div>
+      <div className="px-4 sm:px-8">
         {children}
       </div>
     </>
