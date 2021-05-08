@@ -3,7 +3,7 @@ import React from "react"
 import { ImTwitter, ImYoutube } from "react-icons/im";
 import LinkButton from "@components/buttons/LinkButton";
 
-export function HeaderSolid() {
+export default function Header() {
   return (
     <div className="top-0 inset-x-0 z-100 h-30 items-center">
       <div className="max-w-7xl mx-auto">

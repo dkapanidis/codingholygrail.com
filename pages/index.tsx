@@ -1,5 +1,4 @@
 import Footer from '@components/Footer';
-import { HeaderSolid } from '@components/Header';
 import Layout from '@components/layouts/Layout';
 import Post from '@components/posts/Post';
 import PostsList from '@components/posts/PostsList';
@@ -11,7 +10,6 @@ import VideosList from '@components/videos/VideosList';
 interface Props { posts: Post[] }
 const Blog = ({ posts }: Props) => (
   <Layout title="Blog">
-    <HeaderSolid />
     <div className="flex gap-20">
       <div className="flex-grow">
         <PostsList posts={posts} />
@@ -19,7 +17,6 @@ const Blog = ({ posts }: Props) => (
       </div>
       <VideosList />
     </div>
-    <Footer />
   </Layout>
 )
 

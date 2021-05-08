@@ -1,3 +1,5 @@
+import Footer from '@components/Footer'
+import Header from '@components/Header'
 import { initGA, logPageView } from '@utils/utils/analytics'
 import Head from 'next/head'
 import React, { useEffect } from 'react'
@@ -50,12 +52,14 @@ export default function Layout({ children, title }: LayoutProps) {
         <meta property="og:description" content="Coding Holy Grail | content about containers, cloud native, CI/CD, devops and microservices." />
         <meta property="og:url" content="https://codingholygrail.com" />
 
-        <link rel="alternate" type="application/rss+xml" href="https://codingholygrail.com/feed/index.xml" title="Coding Holy Grail | content about containers, cloud native, CI/CD, devops and microservices."/>
+        <link rel="alternate" type="application/rss+xml" href="https://codingholygrail.com/feed/index.xml" title="Coding Holy Grail | content about containers, cloud native, CI/CD, devops and microservices." />
 
         <meta property="fb:admins" content="" />
       </Head>
       <div className="px-4 sm:px-8">
+        <Header />
         {children}
+        <Footer />
       </div>
     </>
   )
