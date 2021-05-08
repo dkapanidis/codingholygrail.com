@@ -4,7 +4,6 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 import 'balloon-css';
 import React from 'react';
 import '../styles/index.css';
-import '../styles/semantic.css';
 
 library.add(fas, fab);
 
