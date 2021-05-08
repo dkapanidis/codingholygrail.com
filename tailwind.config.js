@@ -8,6 +8,9 @@ module.exports = {
       boxShadow: {
         around: '0 0 6px -1px #aaa',
       },
+      colors: {
+        'red-youtube': 'red',
+      }
     },
   },
   variants: {
