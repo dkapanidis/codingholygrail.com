@@ -1,6 +1,7 @@
 import Layout from '@components/layouts/Layout';
 import Post from '@components/posts/Post';
 import PostsList from '@components/posts/PostsList';
+import { getAllPostPreviews } from '@components/posts/utils';
 import generateRssFeed from '@components/rss';
 import TopicsList from '@components/topics/TopicsList';
 import VideosList from '@components/videos/VideosList';
@@ -18,28 +19,8 @@ const Blog = ({ posts }: Props) => (
   </Layout>
 )
 
-function importAll(r: any) {
-  return r
-    .keys()
-    .map((fileName: string) => ({
-      meta: r(fileName).meta,
-    }))
-}
-
-function dateSortDesc(a: string, b: string) {
-  if (a > b) return -1
-  if (a < b) return 1
-  return 0
-}
-
-function getAllPostPreviews(): Post[] {
-  return importAll(require.context('./', true, /preview\.mdx$/)).sort((a: Post, b: Post) =>
-    dateSortDesc(a.meta.date, b.meta.date)
-  )
-}
-
 export async function getStaticProps() {
-  const posts = getAllPostPreviews()
+  const posts = getAllPostPreviews(require.context('./', true, /preview\.mdx$/))
   await generateRssFeed(posts);
   return { props: { posts } };
 }
