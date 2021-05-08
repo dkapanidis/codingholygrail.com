@@ -24,7 +24,7 @@ function PostRow({ post }: PostRowProps) {
   const topic = topics[post.meta.topic]
 
   return (
-    <Link href={post.meta.slug}>
+    <Link href={`/${post.meta.slug}`}>
       <a className="py-2 hover:bg-gray-100 rounded translate transform group cursor-pointer">
         <article className="space-x-4 flex ">
           <img src={topic.icon} className="px-2 h-12 transition transform group-hover:scale-110 w-16" />
