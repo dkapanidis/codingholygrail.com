@@ -22,7 +22,6 @@ function importAll(r: any) {
   return r
     .keys()
     .map((fileName: string) => ({
-      link: `/${fileName.replace(/\/preview\.mdx$/, '')}`,
       meta: r(fileName).meta,
     }))
 }

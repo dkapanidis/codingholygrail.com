@@ -1,6 +1,6 @@
 export default interface Post {
-  link: string,
   meta: {
+    slug: string,
     title: string,
     date: string
     authors: string[],

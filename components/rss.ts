@@ -35,7 +35,7 @@ async function generateRssFeed(posts: Post[]) {
   });
 
   posts.forEach((post:Post) => {
-    const url = `${baseUrl}/${post.link}`;
+    const url = `${baseUrl}/${post.meta.slug}`;
     feed.addItem({
       title: post.meta.title,
       id: url,
