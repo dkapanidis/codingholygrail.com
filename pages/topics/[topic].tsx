@@ -5,13 +5,13 @@ import PostsList from '@components/posts/PostsList'
 import TopicsList from '@components/topics/TopicsList'
 import { useRouter } from 'next/router'
 import React from 'react'
-
 const posts = getAllPostPreviews()
 
+interface Props { posts: Post[] }
 function Topic() {
   const router = useRouter()
   const { topic } = router.query
-  const topicPosts = posts.filter(post => post.module.meta.topic === topic )
+  const topicPosts = posts.filter(post => post.meta.topic === topic)
   return (
     <Layout title="Blog">
       <HeaderSolid />
@@ -26,7 +26,7 @@ function importAll(r: any) {
     .keys()
     .map((fileName: string) => ({
       link: `/${fileName.replace(/\/preview\.mdx$/, '')}`,
-      module: r(fileName),
+      meta: r(fileName).meta,
     }))
 }
 
@@ -36,11 +36,15 @@ function dateSortDesc(a: string, b: string) {
   return 0
 }
 
-function getAllPostPreviews():Post[] {
-    return importAll(require.context('../', true, /preview\.mdx$/)).sort((a: Post, b: Post) =>
-    dateSortDesc(a.module.meta.date, b.module.meta.date)
+function getAllPostPreviews(): Post[] {
+  return importAll(require.context('../', true, /preview\.mdx$/)).sort((a: Post, b: Post) =>
+    dateSortDesc(a.meta.date, b.meta.date)
   )
 }
+
+// export async function getStaticProps() {
+//   return { props: { posts } };
+// }
 
 
 export default Topic

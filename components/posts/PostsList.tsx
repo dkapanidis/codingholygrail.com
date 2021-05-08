@@ -20,7 +20,7 @@ function PostsList({ posts, topic }: Props) {
 
 interface PostRowProps { post: Post }
 function PostRow({ post }: PostRowProps) {
-  const topic = topics[post.module.meta.topic]
+  const topic = topics[post.meta.topic]
   const router = useRouter()
   const onClick = () => router.push(post.link)
 
@@ -30,11 +30,11 @@ function PostRow({ post }: PostRowProps) {
         <img src={topic.icon} className="px-2 h-12 transition transform group-hover:scale-110 w-16" />
         <div className="flex flex-col">
           <div className="">
-            <h2 className="text-lg font-semibold tracking-wider text-gray-600 group-hover:text-blue-700">{post.module.meta.title}</h2>
+            <h2 className="text-lg font-semibold tracking-wider text-gray-600 group-hover:text-blue-700">{post.meta.title}</h2>
           </div>
           <div>
             <dd className="text-xs  leading-tight text-gray-500">
-              <time dateTime={post.module.meta.date}>{postDateTemplate.render(new Date(post.module.meta.date))}</time>
+              <time dateTime={post.meta.date}>{postDateTemplate.render(new Date(post.meta.date))}</time>
             </dd>
           </div>
         </div>

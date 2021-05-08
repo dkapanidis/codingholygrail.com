@@ -3,12 +3,13 @@ import { HeaderSolid } from '@components/Header';
 import Layout from '@components/layouts/Layout';
 import Post from '@components/posts/Post';
 import PostsList from '@components/posts/PostsList';
+import generateRssFeed from '@components/rss';
 import TopicsList from '@components/topics/TopicsList';
 import VideosList from '@components/videos/VideosList';
 
-const posts = getAllPostPreviews()
 
-const Blog = () => (
+interface Props { posts: Post[] }
+const Blog = ({ posts }: Props) => (
   <Layout title="Blog">
     <HeaderSolid />
     <div className="flex gap-20">
@@ -27,7 +28,7 @@ function importAll(r: any) {
     .keys()
     .map((fileName: string) => ({
       link: `/${fileName.replace(/\/preview\.mdx$/, '')}`,
-      module: r(fileName),
+      meta: r(fileName).meta,
     }))
 }
 
@@ -39,8 +40,14 @@ function dateSortDesc(a: string, b: string) {
 
 function getAllPostPreviews(): Post[] {
   return importAll(require.context('./', true, /preview\.mdx$/)).sort((a: Post, b: Post) =>
-    dateSortDesc(a.module.meta.date, b.module.meta.date)
+    dateSortDesc(a.meta.date, b.meta.date)
   )
+}
+
+export async function getStaticProps() {
+  const posts = getAllPostPreviews()
+  await generateRssFeed(posts);
+  return { props: { posts } };
 }
 
 export default Blog
