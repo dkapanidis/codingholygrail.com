@@ -42,6 +42,7 @@ async function generateRssFeed(posts: Post[]) {
       id: url,
       link: url,
       description: post.meta.description,
+      content: post.meta.description,
       // content: markdown.toHTML(post.content),
       author: [author],
       contributor: [author],
