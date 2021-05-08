@@ -1,11 +1,9 @@
-import Footer from '@components/Footer';
 import Layout from '@components/layouts/Layout';
 import Post from '@components/posts/Post';
 import PostsList from '@components/posts/PostsList';
 import generateRssFeed from '@components/rss';
 import TopicsList from '@components/topics/TopicsList';
 import VideosList from '@components/videos/VideosList';
-
 
 interface Props { posts: Post[] }
 const Blog = ({ posts }: Props) => (

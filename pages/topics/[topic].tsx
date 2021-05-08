@@ -6,10 +6,9 @@ import TopicsList from '@components/topics/TopicsList'
 import VideosList from '@components/videos/VideosList'
 import { useRouter } from 'next/router'
 import React from 'react'
-const posts = getAllPostPreviews()
 
 interface Props { posts: Post[] }
-function Topic() {
+function Topic({ posts }: Props) {
   const router = useRouter()
   const { topic } = router.query
   const topicPosts = posts.filter(post => post.meta.topic === topic)
@@ -47,9 +46,20 @@ function getAllPostPreviews(): Post[] {
   )
 }
 
-// export async function getStaticProps() {
-//   return { props: { posts } };
-// }
+export async function getStaticPaths() {
+  const posts = getAllPostPreviews()
+
+  const paths = posts.map((post) => ({
+    params: { topic: post.meta.topic },
+  }))
+
+  return { paths, fallback: false }
+}
+
+export async function getStaticProps() {
+  const posts = getAllPostPreviews()
+  return { props: { posts } };
+}
 
 
 export default Topic
