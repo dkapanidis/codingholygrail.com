@@ -18,12 +18,9 @@ function BlogLayout({ children }: BlogLayoutProps) {
 function Blog({ children }: { children: any }) {
   return (
     <div className="flex">
-      <div className="flex-1" />
-      <h1 className="text-xl font-bold"></h1>
-      <article className="flex-shrink prose pt-12 pb-10 max-w-2xl">
+      <article className="flex-1 prose pb-10 max-w-3xl ">
         {children}
       </article>
-      <div className="flex-1" />
     </div>
   )
 }

@@ -1,6 +1,5 @@
 import topics from '@components/topics/topics';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import React from 'react';
 import tinytime from 'tinytime';
 import Post from './Post';
