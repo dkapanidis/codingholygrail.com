@@ -16,10 +16,10 @@ const Blog = ({ posts }: Props) => (
       <div className="flex-grow">
         <PostsList posts={posts} />
         <TopicsList />
-        <Footer />
       </div>
       <VideosList />
     </div>
+    <Footer />
   </Layout>
 )
 
