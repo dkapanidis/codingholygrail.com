@@ -1,7 +1,6 @@
 import Post from "./posts/Post";
 
 const Feed = require('feed').Feed;
-  const markdown = require('markdown').markdown;
 const fs = require('fs');
 
 async function generateRssFeed(posts: Post[]) {
