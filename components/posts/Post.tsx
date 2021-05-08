@@ -5,5 +5,6 @@ export default interface Post {
     date: string
     authors: string[],
     topic: string,
+    description: string,
   }
 }
