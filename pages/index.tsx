@@ -5,6 +5,7 @@ import { getAllPostPreviews } from '@components/posts/utils';
 import generateRssFeed from '@components/rss';
 import TopicsList from '@components/topics/TopicsList';
 import VideosList from '@components/videos/VideosList';
+import Subscribe from '@components/Subscribe';
 
 interface Props { posts: Post[] }
 const Blog = ({ posts }: Props) => (
@@ -14,7 +15,10 @@ const Blog = ({ posts }: Props) => (
         <PostsList posts={posts} />
         <TopicsList />
       </div>
-      <VideosList />
+      <div className="flex flex-col gap-8">
+        <VideosList />
+        <Subscribe />
+      </div>
     </div>
   </Layout>
 )

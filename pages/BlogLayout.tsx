@@ -1,4 +1,5 @@
 import Layout from '@components/layouts/Layout'
+import Subscribe from '@components/Subscribe'
 import VideosList from '@components/videos/VideosList'
 import React from 'react'
 
@@ -10,7 +11,10 @@ function BlogLayout({ children }: BlogLayoutProps) {
         <div className="flex-grow">
           <Blog>{children}</Blog>
         </div>
+        <div className="flex flex-col gap-8">
         <VideosList />
+        <Subscribe />
+      </div>
       </div>
     </Layout>)
 }

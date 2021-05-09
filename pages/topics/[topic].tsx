@@ -6,6 +6,7 @@ import VideosList from '@components/videos/VideosList'
 import { useRouter } from 'next/router'
 import React from 'react'
 import { getAllPostPreviews } from '@components/posts/utils';
+import Subscribe from '@components/Subscribe'
 
 interface Props { posts: Post[] }
 function Topic({ posts }: Props) {
@@ -19,7 +20,10 @@ function Topic({ posts }: Props) {
           <PostsList posts={topicPosts} topic={topic as string} />
           <TopicsList />
         </div>
+        <div className="flex flex-col gap-8">
         <VideosList />
+        <Subscribe />
+      </div>
       </div>
     </Layout>
   )

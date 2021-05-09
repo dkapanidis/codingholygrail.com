@@ -10,6 +10,9 @@ module.exports = {
       },
       colors: {
         'red-youtube': 'red',
+      },
+      borderWidth: {
+        '3': '3px',
       }
     },
   },
