@@ -15,7 +15,7 @@ exports.handler = async (event, context) => {
   // queryStringParameters – it’ll be in the event body encoded as a query string
   console.log(event.body)
   const {email} = event.body;
-
+  console.log(email)
   if (!email) {
     return {
       statusCode: 200,
