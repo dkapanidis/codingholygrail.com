@@ -5,7 +5,7 @@ mailchimp.setConfig({
   server: process.env.MAILCHIMP_API_SERVER // e.g. us1
 });
 
-export default async (req, res) => {
+exports.handler = async (req, res) => {
   const { email } = req.body;
 
   if (!email) {
