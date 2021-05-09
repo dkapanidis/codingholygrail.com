@@ -3,9 +3,8 @@ import Post from '@components/posts/Post';
 import PostsList from '@components/posts/PostsList';
 import { getAllPostPreviews } from '@components/posts/utils';
 import generateRssFeed from '@components/rss';
+import Sidebar from '@components/Sidebar';
 import TopicsList from '@components/topics/TopicsList';
-import VideosList from '@components/videos/VideosList';
-import Subscribe from '@components/Subscribe';
 
 interface Props { posts: Post[] }
 const Blog = ({ posts }: Props) => (
@@ -15,10 +14,7 @@ const Blog = ({ posts }: Props) => (
         <PostsList posts={posts} />
         <TopicsList />
       </div>
-      <div className="flex flex-col gap-8">
-        <VideosList />
-        <Subscribe />
-      </div>
+      <Sidebar/>
     </div>
   </Layout>
 )

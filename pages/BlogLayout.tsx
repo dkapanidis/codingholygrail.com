@@ -1,6 +1,5 @@
 import Layout from '@components/layouts/Layout'
-import Subscribe from '@components/Subscribe'
-import VideosList from '@components/videos/VideosList'
+import Sidebar from '@components/Sidebar'
 import React from 'react'
 
 interface BlogLayoutProps { children: any }
@@ -11,10 +10,7 @@ function BlogLayout({ children }: BlogLayoutProps) {
         <div className="flex-grow">
           <Blog>{children}</Blog>
         </div>
-        <div className="flex flex-col gap-8">
-        <VideosList />
-        <Subscribe />
-      </div>
+        <Sidebar/>
       </div>
     </Layout>)
 }
