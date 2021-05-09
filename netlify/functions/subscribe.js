@@ -1,4 +1,5 @@
 const mailchimp = require("@mailchimp/mailchimp_marketing");
+const querystring = require("querystring");
 
 mailchimp.setConfig({
   apiKey: process.env.MAILCHIMP_API_KEY,
