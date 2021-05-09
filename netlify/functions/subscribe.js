@@ -16,6 +16,7 @@ exports.handler = async (event, context) => {
   console.log(event.body)
   const {email} = JSON.parse(event.body);
   console.log(email)
+  console.log("AUDIENCE_ID: " + process.env.MAILCHIMP_AUDIENCE_ID)
   if (!email) {
     return {
       statusCode: 200,
