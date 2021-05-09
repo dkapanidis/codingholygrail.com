@@ -2,18 +2,17 @@ import React, { useRef, useState } from 'react';
 import { BiMailSend } from "react-icons/bi";
 
 function Subscribe() {
-  // 1. Create a reference to the input so we can fetch/clear it's value.
-  const inputEl = useRef<any>(null);
-  // 2. Hold a message in state to handle the response from our API.
+  const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+  const [disabled, setDisabled] = useState(false)
 
   const subscribe = async (e:any) => {
     e.preventDefault();
 
     // 3. Send a request to our API with the user's email address.
-    const res = await fetch('/.netlify/functions/subscribe', {
+    const res = await fetch('/api/subscribe', {
       body: JSON.stringify({
-        email: inputEl.current.value
+        email: email
       }),
       headers: {
         'Content-Type': 'application/json'
@@ -31,7 +30,7 @@ function Subscribe() {
     }
 
     // 5. Clear the input value and show a success message.
-    inputEl.current.value = '';
+    setEmail("")
     setMessage('Success! 🎉 You are now subscribed to the newsletter.');
   };
 
@@ -42,8 +41,8 @@ function Subscribe() {
       <div className="text-sm font-light">
         {message ? message : <span>You will receive high-quality articles about cloud native and all things I'm working on. <b>No spam 🙅‍♂️ ! </b></span>}
       </div>
-      <input className="outline-none focus:ring-4 focus:border-blue-500 ring-blue-200 rounded-md text-sm border w-full px-2 p-1" id="email-input" name="email" placeholder="you@awesome.com" ref={inputEl} required type="email"/>
-      <button className="bg-blue-500 rounded p-1 text-white hover:bg-blue-600 outline-none focus:ring-4 focus:border-blue-500 ring-blue-200" type="submit">{'✨ Sign me up! ✨'}</button>
+      <input className="outline-none focus:ring-4 focus:border-blue-500 ring-blue-200 rounded-md text-sm border w-full px-2 p-1" id="email-input" name="email" placeholder="you@awesome.com" value={email} onChange={(e) => setEmail(e.currentTarget.value)} required type="email"/>
+      <button className={`bg-blue-500 rounded p-1 text-white hover:bg-blue-600 outline-none focus:ring-4 focus:border-blue-500 ring-blue-200`} type="submit">{'✨ Sign me up! ✨'}</button>
     </form>
   );
 }
