@@ -14,12 +14,12 @@ function Topic({ posts }: Props) {
   const topicPosts = posts.filter(post => post.meta.topic === topic)
   return (
     <Layout title="Blog">
-      <div className="flex gap-20">
+      <div className="flex flex-col lg:flex-row gap-20">
         <div className="flex-grow">
           <PostsList posts={topicPosts} topic={topic as string} />
           <TopicsList />
         </div>
-        <Sidebar/>
+        <Sidebar />
       </div>
     </Layout>
   )

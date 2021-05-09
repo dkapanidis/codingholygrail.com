@@ -34,7 +34,7 @@ function Subscribe() {
   };
 
   return (
-    <form className="flex bg-white sticky top-10 flex-col border-blue-500 border-3 rounded-md text-center p-4 py-8 w-80  gap-4" onSubmit={subscribe}>
+    <form className="flex bg-white sticky top-10 flex-col border-blue-500 border-3 rounded-md text-center p-4 py-8 gap-4" onSubmit={subscribe}>
       <BiMailSend className="text-blue-500 text-5xl absolute left-1/2 top-0 bg-white px-1 border-white transform -translate-x-1/2 -translate-y-1/2 "/>
       <h1 className="font-semibold text-lg">Subscribe to the Newsletter!</h1>
       <div className="text-sm font-light">

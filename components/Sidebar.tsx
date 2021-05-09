@@ -4,7 +4,7 @@ import VideosList from './videos/VideosList'
 
 function Sidebar() {
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col flex-shrink lg:max-w-sm gap-8">
       <VideosList />
       <Subscribe />
     </div>

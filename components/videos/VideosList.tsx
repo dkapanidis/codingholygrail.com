@@ -6,7 +6,7 @@ import videos from './videos'
 
 function VideosList() {
   return (
-    <div className="pt-4 w-80 relative">
+    <div className="pt-4 relative">
       <div className="flex items-center pb-4 gap-4">
         <h1 className="flex flex-grow whitespace-nowrap text-lg font-semibold items-center">Videos  📹</h1>
         <a className="flex yt-subscribe-button items-center" rel="noopener nofollow" href="https://www.youtube.com/c/dimitriskapanidis?sub_confirmation=1" target="_blank">

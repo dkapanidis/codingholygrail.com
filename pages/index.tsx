@@ -9,7 +9,7 @@ import TopicsList from '@components/topics/TopicsList';
 interface Props { posts: Post[] }
 const Blog = ({ posts }: Props) => (
   <Layout title="Blog">
-    <div className="flex gap-20">
+    <div className="flex flex-col lg:flex-row gap-20">
       <div className="flex-grow">
         <PostsList posts={posts} />
         <TopicsList />

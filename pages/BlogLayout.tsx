@@ -6,11 +6,11 @@ interface BlogLayoutProps { children: any }
 function BlogLayout({ children }: BlogLayoutProps) {
   return (
     <Layout title="Blog">
-      <div className="flex gap-20">
+      <div className="flex flex-col lg:flex-row gap-20">
         <div className="flex-grow">
           <Blog>{children}</Blog>
         </div>
-        <Sidebar/>
+        <Sidebar />
       </div>
     </Layout>)
 }
@@ -18,7 +18,7 @@ function BlogLayout({ children }: BlogLayoutProps) {
 function Blog({ children }: { children: any }) {
   return (
     <div className="flex">
-      <article className="flex-1 prose pb-10 max-w-3xl ">
+      <article className="flex-1 prose pb-10 max-w-3xl">
         {children}
       </article>
     </div>
