@@ -1,5 +1,4 @@
 const mailchimp = require("@mailchimp/mailchimp_marketing");
-const querystring = require("querystring");
 
 mailchimp.setConfig({
   apiKey: process.env.MAILCHIMP_API_KEY,
@@ -14,8 +13,7 @@ exports.handler = async (event, context) => {
 
   // When the method is POST, the name will no longer be in the event’s
   // queryStringParameters – it’ll be in the event body encoded as a query string
-  const params = querystring.parse(event.body);
-  const email = params.email
+  const {email} = event.body;
 
   if (!email) {
     return {
