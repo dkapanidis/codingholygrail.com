@@ -4,7 +4,6 @@ import { BiMailSend } from "react-icons/bi";
 function Subscribe() {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
-  const [disabled, setDisabled] = useState(false)
 
   const subscribe = async (e:any) => {
     e.preventDefault();
