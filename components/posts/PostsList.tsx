@@ -13,7 +13,7 @@ function PostsList({ posts, topic }: Props) {
       {!topic && <h1 className="text-lg pb-2 font-semibold">Latest Posts 📝</h1>}
       {topic && <h1 className="text-lg pb-2 font-semibold">Posts about <i>{topics[topic].text}</i></h1>}
       {topic && <h1 className="text-sm text-gray-600 pb-2"><i>{topics[topic].description}</i></h1>}
-      {posts.map(post => <PostRow key={post.meta.slug} post={post} />)}
+      <div className="flex flex-col gap-4">{posts.map(post => <PostRow key={post.meta.slug} post={post} />)}</div>
     </div>
   )
 }
@@ -24,12 +24,12 @@ function PostRow({ post }: PostRowProps) {
 
   return (
     <Link href={`/${post.meta.slug}`}>
-      <a className="py-2 hover:bg-gray-100 rounded translate transform group cursor-pointer">
+      <a className="flex py-2 hover:bg-gray-100 rounded translate transform group cursor-pointer">
         <article className="space-x-4 flex ">
           <img src={topic.icon} className="px-2 h-12 transition transform group-hover:scale-110 w-16" />
           <div className="flex flex-col">
             <div className="">
-              <h2 className="text-lg font-semibold tracking-wider text-gray-600 group-hover:text-blue-700">{post.meta.title}</h2>
+              <h2 className="text-lg font-semibold tracking-wider text-gray-600">{post.meta.title}</h2>
             </div>
             <div>
               <dd className="text-xs  leading-tight text-gray-500">
