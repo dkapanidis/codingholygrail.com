@@ -5,6 +5,10 @@ import {meta} from './preview.mdx';
 import Title from '@components/Title';
 import Workflow from './workflow.png';
 import Namespaces from './namespaces.png';
+import Fork from './fork.png';
+import Webhooks from './webhooks.png';
+import AddWebhook from './add-webhook.png';
+import Kubernetic from './kubernetic.gif';
 
 <Title meta={meta}/>
 
@@ -741,3 +745,76 @@ First of all we need a repository to build, you can clone the same repo as it al
 
 Fork Repository https://github.com/harbur/tekton-tutorial:
 
+<img src={Fork}/>
+
+Go to Settings > Webhooks:
+
+<img src={Webhooks}/>
+
+Add Webhook:
+
+<img src={AddWebhook}/>
+
+Configure webhook:
+
+* Payload URL: The public endpoint.
+* Content type: `application/json`
+* Secret: The `SECRET_TOKEN` generated while installing github trigger.
+* Which events would you like to trigger this webhook? Just the push event.
+
+Our workflow is now ready to be tested.
+
+### Let’s trigger the pipeline
+
+Let’s to a simple change to our code and see the magic work by changing the response text in `main.go`:
+
+```diff
+func HelloServer(w http.ResponseWriter, r *http.Request) {
+-       fmt.Fprintf(w, "Hello")
++       fmt.Fprintf(w, "Hello, this is awesome!!")
+ }
+```
+
+Commit the code and push it to the remote repostory. A new PipelineRun should be triggered on your cluster instantly:
+
+```sh
+❯ tkn pr ls
+NAME                         STARTED          DURATION     STATUS
+github-run-ntgx5             7 seconds ago    ---          Running
+```
+
+After a while the PipelineRun should finish:
+
+```sh
+❯ tkn pr list
+NAME                         STARTED         DURATION    STATUS
+github-run-7xgnp             3 minutes ago   2 minutes   Succeeded
+```
+
+And the service should be deployed on `tekton-tutorial` :
+
+
+```sh
+❯ kubectl get deploy,pod,svc -n tekton-tutorial
+NAME                              READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/tekton-tutorial   1/1     1            1           43s
+NAME                                  READY   STATUS    RESTARTS   AGE
+pod/tekton-tutorial-58f59757c-6dsbr   1/1     Running   0          43s
+NAME                      TYPE       CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
+service/tekton-tutorial   NodePort   10.110.24.217   <none>        8080:31348/TCP   43s
+```
+
+If you open the service it should now display the fancy new text message:
+
+```sh
+❯ curl $(minikube service tekton-tutorial -n tekton-tutorial --url)
+Hello, this is awesome!!
+```
+
+## Conclusion
+
+Tekton provides the primitives to automate tasks and build workflows on your cluster, which can be leveraged to build lightweight CI/CD delivery pipelines.
+
+At [Kubernetic](https://kubernetic.com/) desktop client we’ve integrated Tekton resources so that you can navigate between Tasks & Pipelines and see the aggregated logs of each execution easily:
+
+<img src={Kubernetic} alt="Kubernetic integration with Tekton"/>
