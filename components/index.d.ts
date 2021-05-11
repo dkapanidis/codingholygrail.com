@@ -16,3 +16,5 @@ declare module 'tinytime' {
 
   export default tinytime
 }
+
+declare module 'remark-prism';
