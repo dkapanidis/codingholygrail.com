@@ -2,12 +2,12 @@ import Link from 'next/link'
 import React from 'react'
 import { ImGithub } from 'react-icons/im'
 import tinytime from 'tinytime'
-import PostMeta from './posts/PostMeta'
+import Post from '../types/post'
 import topics from './topics/topics'
 
 const postDateTemplate = tinytime('{MMMM} {DD}, {YYYY}')
 
-interface Props { meta: PostMeta }
+interface Props { meta: Post }
 function Title({ meta }: Props) {
   const topic = topics[meta.topic]
   return (
@@ -21,7 +21,7 @@ function Title({ meta }: Props) {
   )
 }
 
-interface SubtitleProps { meta: PostMeta }
+interface SubtitleProps { meta: Post }
 function Subtitle({ meta }: SubtitleProps) {
   return (
     <div className="flex items-center text-xs text-gray-400 space-x-4">

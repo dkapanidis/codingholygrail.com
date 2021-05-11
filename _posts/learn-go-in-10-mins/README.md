@@ -1,12 +1,18 @@
-import BlogLayout from '../BlogLayout';
-export default BlogLayout
-import {meta} from './preview.mdx';
-import Title from '@components/Title';
-
-<Title meta={meta}/>
+---
+title: 'Learn Go in 10 minutes'
+excerpt: 'Learning the basics of Go and how it works. I chose Go as a starting language here because of its ease of use and performance.'
+coverImage: '/posts/12-awesome-cli-tools/banner.png'
+date: '2020-05-24T12:04:12.102Z'
+author:
+  name: Dimitris Kapanidis
+  picture: '/images/dkapanidis.jpg'
+ogImage:
+  url: '/posts/12-awesome-cli-tools/banner.png'
+slug: 'learn-go-in-10-mins'
+topic: 'golang'
+---
 
 Learning the basics of Go and how it works. I chose Go as a starting language here because of its ease of use and performance.
-
 
 ## Why Go
 

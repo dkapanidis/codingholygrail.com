@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
-import Topic from './Topic'
+import Topic from 'types/topic'
 import topics from './topics'
 
 function TopicsList() {

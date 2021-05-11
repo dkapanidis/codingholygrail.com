@@ -1,4 +1,4 @@
-import Video from "./Video";
+import Video from "types/video"
 
 const videos: Video[] = [
   {

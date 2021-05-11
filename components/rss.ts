@@ -1,4 +1,4 @@
-import Post from "./posts/Post";
+import Post from "../types/post";
 
 const Feed = require('feed').Feed;
 const fs = require('fs');
@@ -35,15 +35,15 @@ async function generateRssFeed(posts: Post[]) {
   });
 
   posts.forEach((post:Post) => {
-    const url = `${baseUrl}/${post.meta.slug}`;
+    const url = `${baseUrl}/${post.slug}`;
     feed.addItem({
-      title: post.meta.title,
+      title: post.title,
       id: url,
       link: url,
-      description: post.meta.description,
+      description: post.excerpt,
       author: [author],
       contributor: [author],
-      date: new Date(post.meta.date)
+      date: new Date(post.date)
     });
   });
 

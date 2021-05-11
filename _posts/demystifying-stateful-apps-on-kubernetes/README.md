@@ -1,13 +1,18 @@
-import BlogLayout from '../BlogLayout';
-import Banner from './banner.png';
-import Stateless from './stateless.gif';
-import Stateful from './stateful.png';
-import Stateful2 from './stateful2.png';
-export default BlogLayout
+---
+title: 'Demystifying stateful apps on Kubernetes by deploying an etcd cluster'
+excerpt: 'Not all apps are the same - when we deploy them to our Kubernetes cluster, we have to take that into account. One classification of apps is between Stateful & Stateless.'
+coverImage: '/posts/12-awesome-cli-tools/banner.png'
+date: '2021-01-14T09:42:01.435Z'
+author:
+  name: Dimitris Kapanidis
+  picture: '/images/dkapanidis.jpg'
+ogImage:
+  url: '/posts/12-awesome-cli-tools/banner.png'
+slug: 'demystifying-stateful-apps-on-kubernetes'
+topic: 'kubernetes'
+---
 
-## Demystifying stateful apps on Kubernetes by deploying an etcd cluster
-
-<img src={Banner}/>
+![Banner](/posts/demystifying-stateful-apps-on-kubernetes/banner.png)
 
 ## Stateless apps
 
@@ -15,7 +20,7 @@ A stateless app is an application program that does not save client data generat
 
 As an example a REST API backend service that performs requests on a database is stateless, though the database itself is stateful.
 
-<img src={Stateless} alt="Stateless apps"/>
+![Stateless](/posts/demystifying-stateful-apps-on-kubernetes/stateless.gif "Stateless apps")
 
 One of the main benefit of stateless apps is that their instances can be scaled on multiple replicas without issues. On the diagram above we can see that a deployment is scaled to two replicas, so it generates two pods. a service is connecting the active pods under a service IP that can be exposed internally or externally. If a pod dies, the deployment is responsible for generating a fresh identical replica of the pod, when that is active it will be attached to the service.
 
@@ -33,13 +38,13 @@ A stateful app is a program that saves client data from the activities of one se
 
 In order to get state we need a disk to store data. In kubernetes the disks are represented by [PersistentVolumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/) (PV) and a claim of a disk with specific characteristics can be done with [PersistentVolumeClaims](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims) (PVC). Normally during deploy of an app we create a PVC and a [StorageClass](https://kubernetes.io/docs/concepts/storage/storage-classes/) will generate the PV and attach it to our PVC.
 
-<img src={Stateful} alt="Stateful app (1 instance)"/>
+![Stateful](/posts/demystifying-stateful-apps-on-kubernetes/stateful.png "Stateful app (1 instance)")
 
 On the diagram above we can see a [StatefulSet](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/) that generates a Pod which mounts a disk provided by the PVC/PV pair. If you run a single instance database server, that would fit the above example. But in case the instance goes down we will loose service, in order to get a stateful app in high-availability (HA) mode we need more than one instance.
 
 There are different patterns to accomplish HA on stateful apps, we’ll use as example how [etcd](https://etcd.io/) distributed key-value store works.
 
-<img src={Stateful2} alt="Stateful app (3 instances)"/>
+![Stateful2](/posts/demystifying-stateful-apps-on-kubernetes/stateful2.png "Stateful app (3 instances)")
 
 When running etcd on HA, all instances form an etcd cluster. each instance has its own local disk (PVC/PV pair). The etcd cluster decides in unison a leader using [raft](https://raft.github.io/) protocol, if the leader goes down the absolute majority will vote a new leader, thus the odd number of cluster nodes, in our example 3 instances. Each instance can receive read/write requests. the read requests are responded by the local data, while the write requests are forwarded to the leader which in turn broadcast the changes to the rest.
 

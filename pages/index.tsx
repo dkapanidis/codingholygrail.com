@@ -1,12 +1,15 @@
-import Layout from '@components/layouts/Layout';
-import Post from '@components/posts/Post';
-import PostsList from '@components/posts/PostsList';
-import { getAllPostPreviews } from '@components/posts/utils';
-import generateRssFeed from '@components/rss';
-import Sidebar from '@components/Sidebar';
-import TopicsList from '@components/topics/TopicsList';
+import Layout from "@components/layouts/Layout";
+import Post from "types/post";
+import PostsList from "@components/posts/PostsList";
+import generateRssFeed from "@components/rss";
+import Sidebar from "@components/Sidebar";
+import TopicsList from "@components/topics/TopicsList";
+import { getAllPosts } from "lib/api";
 
-interface Props { posts: Post[] }
+interface Props {
+  posts: Post[];
+}
+
 const Blog = ({ posts }: Props) => (
   <Layout title="Blog">
     <div className="flex flex-col lg:flex-row gap-20">
@@ -14,15 +17,15 @@ const Blog = ({ posts }: Props) => (
         <PostsList posts={posts} />
         <TopicsList />
       </div>
-      <Sidebar/>
+      <Sidebar />
     </div>
   </Layout>
-)
+);
 
-export async function getStaticProps() {
-  const posts = getAllPostPreviews(require.context('./', true, /preview\.mdx$/))
+export const getStaticProps = async () => {
+  const posts = getAllPosts();
   await generateRssFeed(posts);
   return { props: { posts } };
-}
+};
 
-export default Blog
+export default Blog;

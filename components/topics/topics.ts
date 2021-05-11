@@ -1,4 +1,4 @@
-import Topic from "./Topic";
+import Topic from "types/topic"
 
 const topics: { [key: string]: Topic } = {
   "golang": {

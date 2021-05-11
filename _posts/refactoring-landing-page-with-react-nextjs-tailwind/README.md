@@ -1,23 +1,24 @@
-import BlogLayout from '../BlogLayout';
-import Banner from './banner.png';
-import WelcomeNext from './welcome-next.png';
-import NextTailwind from './next-tailwind.png';
-import CTA from './cta.gif';
-import CTADropdown from './cta-dropdown.png';
-import Lighthouse from './lighthouse.png';
-export default BlogLayout
-import {meta} from './preview.mdx';
-import Title from '@components/Title';
+---
+title: 'Refactoring landing page with React, NextJS & TailwindCSS'
+excerpt: 'In this blog post I describe the refactoring process that took place in our product landing page Kubernetic, in order to get a more clean UI. The whole process took 5 days and was a complete rewrite of the landing page, including the trial signup form and stripe integration for payments.'
+coverImage: '/posts/12-awesome-cli-tools/banner.png'
+date: '2020-10-09T11:15:03.123Z'
+author:
+  name: Dimitris Kapanidis
+  picture: '/images/dkapanidis.jpg'
+ogImage:
+  url: '/posts/12-awesome-cli-tools/banner.png'
+slug: 'refactoring-landing-page-with-react-nextjs-tailwind'
+topic: 'react'
+---
 
-<Title meta={meta}/>
-
-<img src={Banner}/>
+![Banner](/posts/refactoring-landing-page-with-react-nextjs-tailwind/banner.png)
 
 In this blog post I describe the refactoring process that took place in my product landing page [Kubernetic](https://kubernetic.com/), in order to get a more clean UI. The whole process took 5 days and was a complete rewrite of the landing page, including the trial signup form and stripe integration for payments.
 
 The main reason of the refactor was to test out TailwindCSS framework and their utility-first design. I'm not sure if they coined the term but that was the first time I encountered it and wanted to try it out and see the benefits / inconveniences in a real-world use case.  The landing page desperately needed a lift-up and it's a small project that fitted the description.
 
-You can check the code of the landing page at https://github.com/harbur/www.kubernetic.com.
+You can check the code of the landing page at [https://github.com/harbur/www.kubernetic.com](https://github.com/harbur/www.kubernetic.com).
 
 ## NextJS Starter
 
@@ -36,7 +37,7 @@ https://github.com/vercel/next-learn-starter/tree/master/learn-starter
 
 Once you have the repository you can run the app using npm run dev and open the http://localhost:3000.
 
-<img src={WelcomeNext} alt="NextJS starter repo"/>
+![WelcomeNext](/posts/refactoring-landing-page-with-react-nextjs-tailwind/welcome-next.png "NextJS starter repo")
 
 ## NextJS + TailwindCSS Starter
 
@@ -50,7 +51,7 @@ https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss
 Now run `npm run dev` and open http://localhost:3000 on your browser:
 
 
-<img src={NextTailwind}/>
+![NextTailwind](/posts/refactoring-landing-page-with-react-nextjs-tailwind/next-tailwind.png)
 
 ## Enable TypeScript
 
@@ -141,7 +142,7 @@ If you get tired of imports always looking like "../" or "./". Or needing to cha
 
 The CTA button has a principal download link with a nice-looking dropdown menu that displays option for different OS. I've added a slight shadow on hover and a transition movement of 1-px in 0.3secs which gives the illusion of button popup.
 
-<img src={CTA}/>
+![Call To Action](/posts/refactoring-landing-page-with-react-nextjs-tailwind/cta.gif)
 
 All this is very easy to do with TailWindCSS and it gave me a pixel perfect freedom that I didn't feel before. This is exactly what I was looking for with the utility-first design without entering the here-be-dragons CSS world. Arguably, you could still say it's CSS, but I'd say it's a bit more abstract, and it sits somewhere between CSS and pre-cooked UI frameworks such as Bootstrap or Material UI.
 
@@ -326,7 +327,7 @@ export default function IndexPage() {
 You should now be able to see your own CTA Button:
 
 
-<img src={CTADropdown} alt="CTA Button"/>
+![CTA Dropdown](/posts/refactoring-landing-page-with-react-nextjs-tailwind/cta-dropdown.png "CTA Button")
 
 ## Deploy with Netlify
 
@@ -370,11 +371,9 @@ package = "netlify-plugin-cache-nextjs"
 
 Once deployed I took a bit of time to make sure the site is optimised properly for web, using [lighthouse](https://developers.google.com/web/tools/lighthouse#:~:text=Lighthouse%20is%20an%20open%2Dsource,the%20quality%20of%20web%20pages.&text=You%20can%20run%20Lighthouse%20in,how%20well%20the%20page%20did.). Once I finished the optimisations here the result was pretty good:
 
-
-<img src={Lighthouse} alt="Chrome's Lighthouse website report"/>
+![Lighthouse](/posts/refactoring-landing-page-with-react-nextjs-tailwind/lighthouse.png "Chrome's Lighthouse website report")
 
 One of the things I noticed there was the images I used on the landing page could be compressed better by serving them in [next-gen formats](https://web.dev/uses-webp-images/). I used [cwebp](https://developers.google.com/speed/webp/docs/cwebp) CLI for static PNG and [ezgif.com](https://ezgif.com/) for animated PNGs.
-
 
 ## Conclusion
 

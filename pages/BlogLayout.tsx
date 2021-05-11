@@ -1,5 +1,5 @@
 import Layout from '@components/layouts/Layout'
-import Post from '@components/posts/Post'
+import Post from 'types/post'
 import Sidebar from '@components/Sidebar'
 import { useRouter } from 'next/router'
 import React from 'react'

@@ -1,20 +1,16 @@
-import BlogLayout from '../BlogLayout';
-import Banner from './banner.png';
-export default BlogLayout
-import {meta} from './preview.mdx';
-import Title from '@components/Title';
-import Workflow from './workflow.png';
-import Namespaces from './namespaces.png';
-import Fork from './fork.png';
-import Webhooks from './webhooks.png';
-import AddWebhook from './add-webhook.png';
-import Kubernetic from './kubernetic.gif';
-
-<Title meta={meta}/>
-
-<img src={Banner}/>
-
-## Introduction
+---
+title: 'The Seven Steps to build a Cloud Native CI/CD for GitHub repos using Tekton'
+excerpt: 'Tekton is a powerful framework for creating continuous delivery pipelines in modern infrastructure. It provides the primitive blocks necessary to build your own CI/CD workflows. In this post we’ll be building a CI/CD from scratch on seven steps.'
+coverImage: '/posts/12-awesome-cli-tools/banner.png'
+date: '2021-01-28T09:12:14.122Z'
+author:
+  name: Dimitris Kapanidis
+  picture: '/images/dkapanidis.jpg'
+ogImage:
+  url: '/posts/12-awesome-cli-tools/banner.png'
+slug: 'the-seven-steps-to-build-a-cloud-native-ci-cd-for-github-repos-using-tekton'
+topic: 'kubernetes'
+---
 
 [Tekton](https://tekton.dev/) is a powerful framework for creating continuous delivery pipelines in modern infrastructure. It provides the primitive blocks necessary to build your own CI/CD workflows. In this post we’ll be building a CI/CD from scratch on seven steps.
 
@@ -22,11 +18,11 @@ import Kubernetic from './kubernetic.gif';
 
 The workflow that we’ll be building can be seen in the following diagram:
 
-<img src={Workflow} alt="The CI/CD workflow" />
+![Workflow](/posts/the-seven-steps-to-build-a-cloud-native-ci-cd-for-github-repos-using-tekton/workflow.png "The CI/CD workflow")
 
 Push events on our GitHub repo will trigger a push notification that will be sent to our kubernetes cluster (during the tutorial using ngrok tunnel so that we can use a local instance). Tekton will trigger a Pipeline that will first build our image using and push it to a local registry and then will deploy the app under a respective namespace.
 
-The code can be found on https://github.com/harbur/tekton-tutorial.
+The code can be found on [https://github.com/harbur/tekton-tutorial](https://github.com/harbur/tekton-tutorial).
 
 ## Step 1. Install Kubernetes
 
@@ -64,7 +60,7 @@ We use [registry-aliases](https://github.com/kubernetes/minikube/tree/master/dep
 
 The following diagram displays the namespaces we’ll be using during the tutorial:
 
-<img src={Namespaces}/>
+![Namespaces](/posts/the-seven-steps-to-build-a-cloud-native-ci-cd-for-github-repos-using-tekton/namespaces.png)
 
 * The `default` namespace is where all TaskRuns and PipelineRuns of the tutorial will be running.
 * The `tekton-pipelines` will be created when we install Tekton so we don't need to prepare anything special.
@@ -264,7 +260,6 @@ Hello, there!%
 ```
 
 > Note that the Dockerfile is using multistage build so that the final image doesn’t include the source code and build tools (more specifically it uses empty scratch base image since go can be statically built).
-
 
 ### Step 3c. Run Build task
 
@@ -745,15 +740,15 @@ First of all we need a repository to build, you can clone the same repo as it al
 
 Fork Repository https://github.com/harbur/tekton-tutorial:
 
-<img src={Fork}/>
+![Fork](/posts/the-seven-steps-to-build-a-cloud-native-ci-cd-for-github-repos-using-tekton/fork.png)
 
 Go to Settings > Webhooks:
 
-<img src={Webhooks}/>
+![Webhooks](/posts/the-seven-steps-to-build-a-cloud-native-ci-cd-for-github-repos-using-tekton/webhooks.png)
 
 Add Webhook:
 
-<img src={AddWebhook}/>
+![AddWebhook](/posts/the-seven-steps-to-build-a-cloud-native-ci-cd-for-github-repos-using-tekton/add-webhook.png)
 
 Configure webhook:
 
@@ -817,6 +812,6 @@ Tekton provides the primitives to automate tasks and build workflows on your clu
 
 At [Kubernetic](https://kubernetic.com/) desktop client we’ve integrated Tekton resources so that you can navigate between Tasks & Pipelines and see the aggregated logs of each execution easily:
 
-<img src={Kubernetic} alt="Kubernetic integration with Tekton"/>
+![Kubernetic](/posts/the-seven-steps-to-build-a-cloud-native-ci-cd-for-github-repos-using-tekton/kubernetic.gif "Kubernetic integration with Tekton")
 
 Hope you enjoyed our tutorial, you can try Kubernetic for free during our 30 day trial period, no registration is required.
