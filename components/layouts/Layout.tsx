@@ -58,7 +58,7 @@ export default function Layout({ children, title }: LayoutProps) {
       </Head>
       <div className="px-4 sm:px-8">
         <Header />
-        <div className="mx-auto max-w-7xl">
+        <div className="relative mx-auto max-w-7xl">
           {children}
         </div>
         <Footer />

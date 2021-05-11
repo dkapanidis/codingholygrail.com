@@ -16,7 +16,7 @@ function Footer() {
         <FooterLink href="/rss/feed.json">JSON Feed</FooterLink>
       </div>
       <div className="space-x-4 text-xs text-gray-400 text-center absolute right-7 bottom-7">
-        Theme inspired by <a target="_new" className="underline" href="https://midu.dev">midu.dev</a>
+        Theme inspired by <a rel="nofollow noopener" target="_blank" className="underline" href="https://midu.dev">midu.dev</a>
       </div>
     </footer>
   )
@@ -25,7 +25,7 @@ function Footer() {
 interface FooterLinkProps { href: string, children: any }
 function FooterLink({ href, children }: FooterLinkProps) {
   return (
-    <Link href={href}><a target="_new">{children}</a></Link>
+    <Link href={href}><a rel="nofollow noopener" target="_blank">{children}</a></Link>
   )
 }
 
