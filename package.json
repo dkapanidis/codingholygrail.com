@@ -43,7 +43,6 @@
     "simple-functional-loader": "^1.2.1",
     "strip-markdown": "^4.0.0",
     "stripe": "8.148.0",
-    "tinytime": "^0.2.6",
     "unist-util-visit": "^3.0.1"
   },
   "devDependencies": {
