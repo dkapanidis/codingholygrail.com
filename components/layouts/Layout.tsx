@@ -1,5 +1,5 @@
-import Footer from '@components/Footer'
-import Header from '@components/Header'
+import Footer from '@components/layouts/Footer'
+import Header from '@components/layouts/Header'
 import { initGA, logPageView } from '@utils/utils/analytics'
 import Head from 'next/head'
 import React, { useEffect } from 'react'
