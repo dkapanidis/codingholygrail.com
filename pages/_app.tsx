@@ -1,12 +1,7 @@
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { fab } from '@fortawesome/free-brands-svg-icons';
-import { fas } from '@fortawesome/free-solid-svg-icons';
 import 'balloon-css';
 import React from 'react';
-import '../styles/index.css';
-import '../styles/prose.css';
-
-library.add(fas, fab);
+import 'styles/index.css';
+import 'styles/prose.css';
 
 type MyAppProps = { Component: any, pageProps: any }
 
