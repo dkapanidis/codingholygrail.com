@@ -1,7 +1,7 @@
 import Layout from "@components/layouts/Layout";
 import Post from "types/post";
 import PostsList from "@components/posts/PostsList";
-import generateRssFeed from "@components/rss";
+import generateRssFeed from "lib/rss";
 import Sidebar from "@components/Sidebar";
 import TopicsList from "@components/topics/TopicsList";
 import { getAllPosts } from "lib/api";
