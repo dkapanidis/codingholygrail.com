@@ -1,4 +1,4 @@
-import DateFormatter from '@components/date-formatter';
+import DateFormatter from '@components/date/date-formatter';
 import topics from 'data/topics';
 import Link from 'next/link';
 import React from 'react';
