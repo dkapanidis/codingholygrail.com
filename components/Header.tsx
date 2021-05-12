@@ -1,7 +1,6 @@
 import Link from "next/link"
 import React from "react"
 import { ImTwitter, ImYoutube } from "react-icons/im";
-import LinkButton from "@components/buttons/LinkButton";
 
 export default function Header() {
   return (
@@ -28,4 +27,13 @@ export default function Header() {
       </div>
     </div>
   )
+}
+
+function LinkButton({ to, children }: { to: string, children: any }) {
+  return (
+    <Link href={to}>
+      <a rel="nofollow noopener" target="_blank" className="flex p-2 hover:bg-gray-100 rounded-md">
+        {children}
+      </a>
+    </Link>)
 }
