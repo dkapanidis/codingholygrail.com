@@ -32,7 +32,7 @@ const Post = ({ post, previous, next }: Props) => {
         </div>
         <Sidebar />
       </div>
-      <ShareLinks />
+      <ShareLinks post={post} />
     </Layout>
   );
 };
