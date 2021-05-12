@@ -10,7 +10,7 @@ interface Props {
   posts: Post[];
 }
 
-const Blog = ({ posts }: Props) => (
+const Index = ({ posts }: Props) => (
   <Layout title="Blog">
     <div className="flex flex-col lg:flex-row gap-20">
       <div className="flex-grow">
@@ -28,4 +28,4 @@ export const getStaticProps = async () => {
   return { props: { posts } };
 };
 
-export default Blog;
+export default Index;
