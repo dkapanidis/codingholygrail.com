@@ -2,8 +2,8 @@ import Link from 'next/link'
 import React from 'react'
 import { ImGithub } from 'react-icons/im'
 import tinytime from 'tinytime'
-import Post from '../types/post'
-import topics from './topics/topics'
+import Post from 'types/post'
+import topics from 'data/topics'
 
 const postDateTemplate = tinytime('{MMMM} {DD}, {YYYY}')
 

@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
 import Topic from 'types/topic'
-import topics from './topics'
+import topics from 'data/topics'
 
 function TopicsList() {
   return (

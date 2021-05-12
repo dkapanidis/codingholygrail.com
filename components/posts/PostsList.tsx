@@ -1,4 +1,4 @@
-import topics from '@components/topics/topics';
+import topics from 'data/topics';
 import Link from 'next/link';
 import React from 'react';
 import tinytime from 'tinytime';

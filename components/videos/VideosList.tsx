@@ -2,7 +2,7 @@ import Link from 'next/link'
 import React from 'react'
 import { ImYoutube } from 'react-icons/im'
 import Video from 'types/video'
-import videos from './videos'
+import videos from 'data/videos'
 
 function VideosList() {
   return (
