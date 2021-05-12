@@ -1,4 +1,3 @@
-import 'balloon-css';
 import React from 'react';
 import 'styles/index.css';
 import 'styles/prose.css';

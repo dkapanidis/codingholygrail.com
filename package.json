@@ -19,7 +19,6 @@
     "@stripe/stripe-js": "1.14.0",
     "@tailwindcss/postcss7-compat": "^2.1.2",
     "@tailwindcss/typography": "^0.4.0",
-    "balloon-css": "^1.2.0",
     "date-fns": "^2.21.3",
     "feed": "^4.2.2",
     "gray-matter": "^4.0.3",
