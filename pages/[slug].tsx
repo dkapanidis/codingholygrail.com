@@ -1,11 +1,11 @@
 import Layout from "@components/layouts/Layout";
-import Sidebar from "@components/Sidebar";
-import Title from "@components/Title";
+import Sidebar from "@components/sidebar/Sidebar";
+import Title from "@components/posts/Title";
 import ErrorPage from "next/error";
 import { useRouter } from "next/router";
 import { ImTwitter } from "react-icons/im";
 import { useInView } from "react-intersection-observer";
-import PostBody from "../components/post-body";
+import PostBody from "../components/posts/PostBody";
 import { getAllPosts, getPostBySlug } from "../lib/api";
 import markdownToHtml from "../lib/markdownToHtml";
 import PostType from "../types/post";

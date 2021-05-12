@@ -1,6 +1,6 @@
 import React from 'react'
 import Subscribe from './Subscribe'
-import VideosList from './videos/VideosList'
+import VideosList from './VideosList'
 
 function Sidebar() {
   return (

@@ -1,6 +1,6 @@
 import Layout from "@components/layouts/Layout";
 import PostsList from "@components/posts/PostsList";
-import Sidebar from "@components/Sidebar";
+import Sidebar from "@components/sidebar/Sidebar";
 import TopicsList from "@components/topics/TopicsList";
 import { getAllPosts } from "lib/api";
 import { useRouter } from "next/router";
