@@ -9,6 +9,7 @@ import markdownToHtml from "lib/markdownToHtml";
 import ErrorPage from "next/error";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { ImArrowLeft2, ImArrowRight2 } from "react-icons/im";
 import PostType from "types/post";
 
 type Props = {
@@ -41,20 +42,22 @@ type MorePostsProps = { previous?: PostType, next?: PostType }
 function MorePosts({ previous, next }: MorePostsProps) {
   return (
     <div className='flex w-full py-10 px-20'>
-      <div className="flex-grow"/>
-      {previous && <MorePostsLink post={previous} />}
-      {next && <MorePostsLink post={next} />}
-      <div className="flex-grow"/>
+      <div className="flex-grow" />
+      {previous && <MorePostsLink post={previous} arrow="left" />}
+      {next && <MorePostsLink post={next} arrow="right" />}
+      <div className="flex-grow" />
     </div>
   )
 }
 
-type MorePostsLinkProps = { post: PostType }
-function MorePostsLink({ post }: MorePostsLinkProps) {
+type MorePostsLinkProps = { post: PostType, arrow: "left" | "right" }
+function MorePostsLink({ post, arrow }: MorePostsLinkProps) {
   return (
     <Link href={post.slug}>
-      <a className="flex text-sm w-56 text-blue-700 hover:bg-blue-100 p-4 rounded flex-col items-center text-center">
+      <a className="flex text-sm w-56 text-blue-700 hover:bg-blue-100 p-4 rounded flex-col items-center text-center gap-4">
         <img src={topics[post.topic].icon} className="px-2 w-16 py-4" />
+        {arrow === "left" && <ImArrowLeft2 className="text-lg text-blue-500" color="inherit" />}
+        {arrow === "right" && <ImArrowRight2 className="text-lg text-blue-500" color="inherit" />}
         <span>{post.title}</span>
       </a>
     </Link>
