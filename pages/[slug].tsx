@@ -1,22 +1,20 @@
 import Layout from "@components/layouts/Layout";
-import Sidebar from "@components/sidebar/Sidebar";
+import ShareLinks from "@components/posts/ShareLinks";
 import Title from "@components/posts/Title";
+import Sidebar from "@components/sidebar/Sidebar";
+import PostBody from "components/posts/PostBody";
+import { getAllPosts, getPostBySlug } from "lib/api";
+import markdownToHtml from "lib/markdownToHtml";
 import ErrorPage from "next/error";
 import { useRouter } from "next/router";
-import { ImTwitter } from "react-icons/im";
-import { useInView } from "react-intersection-observer";
-import PostBody from "../components/posts/PostBody";
-import { getAllPosts, getPostBySlug } from "../lib/api";
-import markdownToHtml from "../lib/markdownToHtml";
-import PostType from "../types/post";
+import PostType from "types/post";
 
 type Props = {
   post: PostType;
   morePosts: PostType[];
-  preview?: boolean;
 };
 
-const Post = ({ post, morePosts, preview }: Props) => {
+const Post = ({ post, morePosts }: Props) => {
   const router = useRouter();
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
@@ -35,47 +33,7 @@ const Post = ({ post, morePosts, preview }: Props) => {
   );
 };
 
-function Blog({ children }: { children: any }) {
-  return (
-    <div className="flex">
-      <article className="flex-1 prose pb-10 max-w-3xl">{children}</article>
-    </div>
-  );
-}
 
-function ShareLinks() {
-  const { ref, inView } = useInView();
-
-  return (
-    <div ref={ref}>
-      <ShareOnTwitter hidden={inView} />
-    </div>
-  );
-}
-
-interface ShareOnTwitterProps {
-  hidden: boolean;
-}
-function ShareOnTwitter({ hidden }: ShareOnTwitterProps) {
-  const router = useRouter();
-  const url = `https://codingholygrail.com${router.pathname}`;
-  return (
-    <a
-      rel="nofollow noopener"
-      target="_blank"
-      href={`https://twitter.com/intent/tweet?url=${url}`}
-      className={`fixed bottom-5 left-1/2 
-        border border-gray-100 shadow-lg
-        bg-white text-gray-800 p-2
-        rounded-full hover:border-blue-100 hover:bg-blue-100
-        flex items-center gap-2 text-sm transform -translate-x-1/2
-        ${hidden ? "hidden" : ""}`}
-    >
-      <span>Share on Twitter</span>
-      <ImTwitter fill="#1da1f2" />
-    </a>
-  );
-}
 
 export default Post;
 
