@@ -25,7 +25,7 @@ const Post = ({ post, morePosts, preview }: Props) => {
     <Layout title="Blog">
       <div className="flex flex-col lg:flex-row gap-20">
         <div className="flex-grow">
-          <Title meta={post}/>
+          <Title post={post}/>
           <PostBody content={post.content} />
         </div>
         <Sidebar />

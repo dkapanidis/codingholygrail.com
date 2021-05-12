@@ -1,10 +1,8 @@
+import DateFormatter from '@components/date-formatter';
 import topics from 'data/topics';
 import Link from 'next/link';
 import React from 'react';
-import tinytime from 'tinytime';
 import Post from '../../types/post';
-
-const postDateTemplate = tinytime('{MMMM} {DD}, {YYYY}')
 
 interface Props { posts: Post[], topic?: string }
 function PostsList({ posts, topic }: Props) {
@@ -33,7 +31,7 @@ function PostRow({ post }: PostRowProps) {
             </div>
             <div>
               <dd className="text-xs  leading-tight text-gray-500">
-                <time dateTime={post.date}>{postDateTemplate.render(new Date(post.date))}</time>
+                <DateFormatter dateString={post.date}/>
               </dd>
             </div>
           </div>
