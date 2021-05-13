@@ -1,17 +1,17 @@
 ---
 title: '12 Awesome CLI tools to supercharge your Cloud Native terminal'
 excerpt: 'I like to keep my terminal lean and productive, here is a list of some awesome tools to help you with your daily work'
-coverImage: '/posts/12-awesome-cli-tools/banner.png'
+coverImage: '/posts/awesome-cli-tools-2020/banner.png'
 date: '2020-11-18T05:35:07.322Z'
 author:
   name: Dimitris Kapanidis
   picture: '/images/dkapanidis.jpg'
 ogImage:
-  url: '/posts/12-awesome-cli-tools/banner.png'
+  url: '/posts/awesome-cli-tools-2020/banner.png'
 topic: 'terminal'
 ---
 
-![Banner](/posts/12-awesome-cli-tools/banner.png)
+![Banner](/posts/awesome-cli-tools-2020/banner.png)
 
 I like to keep my terminal lean and productive, here is a list of some awesome tools to help you with your daily work
 
@@ -40,7 +40,7 @@ I use [Brew](https://brew.sh/) for installing everything on my Mac. To install b
 
 Alfred is an application launcher for Mac which is not directly terminal related but I use it to start my terminal, so worth the mention.
 
-![Alfred](/posts/12-awesome-cli-tools/alfred.png)
+![Alfred](/posts/awesome-cli-tools-2020/alfred.png)
 
 Keyboard shortcut just the one and only:
 
@@ -54,7 +54,7 @@ Keyboard shortcut just the one and only:
 
 As a terminal emulator I prefer to use iTerm2, which integrates great with other tools in this list. Some of my favourite features are spawning multiple terminals to work with.
 
-![Iterm2](/posts/12-awesome-cli-tools/iterm2.png)
+![Iterm2](/posts/awesome-cli-tools-2020/iterm2.png)
 
 Keyboard shortcuts I use daily:
 
@@ -80,14 +80,14 @@ Choosing a shell is something of a personal preference, I chose some time ago zs
 
 Powerlevel10k (or p10k) is a zsh theme that greatly improves the UX of the CLI itself. Once installed do `p10k configure` and it will interactively prompt you to customize it as you want.
 
-![P10k](/posts/12-awesome-cli-tools/p10k.png)
+![P10k](/posts/awesome-cli-tools-2020/p10k.png)
 
 Some of my favourite features here are:
 
 * **Instant Prompt**: It provides you with an interactive prompt before finish loading the shell configuration itself, this makes it super fast to startup.
 * **Show On Command**: It displays command related info (e.g. the kubernetes context & namespace). I have as alias `k` for `kubectl` so it appears the moment I strike `k` on my keyboard:
 
-![ShowOnCommand](/posts/12-awesome-cli-tools/show-on-command.gif "show on command the kubernetes context and namespace")
+![ShowOnCommand](/posts/awesome-cli-tools-2020/show-on-command.gif "show on command the kubernetes context and namespace")
 
 * Installation: `brew install p10k; p10k configure`
 * Alternatives: [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh)
@@ -105,7 +105,7 @@ Z is one of those small tools that really make a difference! Its description is 
 
 Instead of jumping by using absolute or relative paths between directories, it tracks your most frequent paths and jumps to the best match. So instead of doing for example `cd ~/src/private/harbur/docs/playbook` I simply do `z play` and it picks it up.
 
-![Z](/posts/12-awesome-cli-tools/z.gif "z - jump around")
+![Z](/posts/awesome-cli-tools-2020/z.gif "z - jump around")
 
 * Installation: `brew install z`
 
@@ -119,7 +119,7 @@ Cloud native is almost synonym these days with kubernetes, so kubectl on the CLI
 
 Either if you're starting out or you're an experienced user of kubernetes one of the best ways to start a Kubernetes cluster locally is using [minikube](https://github.com/kubernetes/minikube).
 
-![Minikube](/posts/12-awesome-cli-tools/minikube.gif "starting kubernetes cluster with minikube locally")
+![Minikube](/posts/awesome-cli-tools-2020/minikube.gif "starting kubernetes cluster with minikube locally")
 
 * Installation: `brew install minikube`
 
@@ -129,9 +129,9 @@ If you work with many clusters or many namespaces it s(h)aves a loooot of time t
 
 For that you can use [kubectx](https://github.com/ahmetb/kubectx). It installs both `kubectx` and `kubens` for switching context or namespace respectively, combined with the "Show on command" feature of p10k at the right side of the screen it really shines:
 
-![Kubectx](/posts/12-awesome-cli-tools/kubectx.gif "switching kubernetes context fast with kubectx")
+![Kubectx](/posts/awesome-cli-tools-2020/kubectx.gif "switching kubernetes context fast with kubectx")
 
-![Kubens](/posts/12-awesome-cli-tools/kubens.gif "switching kubernetes namespace fast with kubens")
+![Kubens](/posts/awesome-cli-tools-2020/kubens.gif "switching kubernetes namespace fast with kubens")
 
 * Installation: `brew install kubectx`
 
@@ -139,7 +139,7 @@ For that you can use [kubectx](https://github.com/ahmetb/kubectx). It installs b
 
 [Helm](https://helm.sh/) is a package manager for kubernetes, it helps you organize multiple resources and install them together as a unified app, it also manages the lifecycle of the releases providing the ability to do upgrades and rollbacks.
 
-![Helm](/posts/12-awesome-cli-tools/helm.gif "listing helm releases on cert-manager namespace")
+![Helm](/posts/awesome-cli-tools-2020/helm.gif "listing helm releases on cert-manager namespace")
 
 Make sure to use v3, as helm v2 has reached its end-of-life.
 
@@ -149,7 +149,7 @@ Make sure to use v3, as helm v2 has reached its end-of-life.
 
 [Stern](https://github.com/wercker/stern) is a multi pod and container log tailing for Kubernetes, so for example if you want to get the logs of a deployment with two pods you simply do `stern nginx` and it will tail the logs of both pods on screen:
 
-![Stern](/posts/12-awesome-cli-tools/stern.gif "using stern to tail logs of multiple pods")
+![Stern](/posts/awesome-cli-tools-2020/stern.gif "using stern to tail logs of multiple pods")
 
 * Installation `brew install stern`
 * Alternatives: [kubetail](https://github.com/johanhaleby/kubetail), [kail](https://github.com/boz/kail)
@@ -160,7 +160,7 @@ Make sure to use v3, as helm v2 has reached its end-of-life.
 
 With Kubernetic you can manage multiple contexts & namespaces, see resources usage consumption, do port-forwarding of services, execute commands in containers, craft resources without extensive YAML knowledge and much much more.
 
-![Kubernetic](/posts/12-awesome-cli-tools/kubernetic.gif "create an nginx deployment with 2 replicas and do port-forward with Kubernetic")
+![Kubernetic](/posts/awesome-cli-tools-2020/kubernetic.gif "create an nginx deployment with 2 replicas and do port-forward with Kubernetic")
 
 * Installation: `brew install kubernetic`
 * Disclaimer: Kubernetic is a product of Harbur Cloud Solutions, the consulting company where I currently work.
