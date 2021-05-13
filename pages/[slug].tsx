@@ -5,7 +5,7 @@ import Sidebar from "@components/sidebar/Sidebar";
 import PostBody from "components/posts/PostBody";
 import topics from "data/topics";
 import { getAllPosts } from "lib/api";
-import markdownToHtml from "lib/markdownToHtml";
+import markdownToHtml, { markdownToToc } from "lib/markdownToHtml";
 import ErrorPage from "next/error";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -16,9 +16,10 @@ type Props = {
   post: PostType;
   previous?: PostType;
   next?: PostType;
+  toc: string[];
 };
 
-const Post = ({ post, previous, next }: Props) => {
+const Post = ({ post, previous, next, toc }: Props) => {
   const router = useRouter();
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
@@ -31,7 +32,7 @@ const Post = ({ post, previous, next }: Props) => {
           <PostBody content={post.content} />
           <MorePosts previous={previous} next={next} />
         </div>
-        <Sidebar />
+        <Sidebar toc={toc} />
       </div>
       <ShareLinks post={post} />
     </Layout>
@@ -79,7 +80,7 @@ export async function getStaticProps({ params }: Params) {
   const content = await markdownToHtml(post.content || "");
   const next = index > 0 && posts[index - 1]
   const previous = index < posts.length && posts[index + 1]
-
+  const toc = await markdownToToc(post.content || "");
   return {
     props: {
       post: {
@@ -88,6 +89,7 @@ export async function getStaticProps({ params }: Params) {
       },
       next: next || null,
       previous: previous || null,
+      toc,
     },
   };
 }
