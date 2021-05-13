@@ -81,7 +81,6 @@ export async function getStaticProps({ params }: Params) {
   const next = index > 0 && posts[index - 1]
   const previous = index < posts.length && posts[index + 1]
   const toc = await markdownToToc(post.content || "");
-  console.log('toc', toc)
   return {
     props: {
       post: {

@@ -4,7 +4,6 @@ import { ImArrowRight2 } from 'react-icons/im'
 
 type Props = { toc: string[] }
 function TableOfContents({ toc }: Props) {
-  console.log('tableofcontents toc', toc)
   return (
     <div className="pt-4 relative">
       <div className="flex items-center pb-4 gap-4">
@@ -19,8 +18,7 @@ function TableOfContents({ toc }: Props) {
 
 type TitleRowProps = { title: string }
 function TitleRow({ title }: TitleRowProps) {
-  console.log('titlerow', title)
-  const link = title.toLowerCase().replaceAll(" ", "-").replaceAll(".", "").replaceAll("/", "").replaceAll("+", "").replaceAll("(", "").replaceAll(")", "")
+  const link = title.toLowerCase().replace(/ /g, '-').replace(/\./g, '').replace(/\//g, "").replace(/\+/g, "").replace(/\(/g, "").replace(/\)/g, "")
   return (
     <AnchorLink
       offset={50}
