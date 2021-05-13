@@ -53,7 +53,7 @@ function MorePosts({ previous, next }: MorePostsProps) {
 type MorePostsLinkProps = { post: PostType, arrow: "left" | "right" }
 function MorePostsLink({ post, arrow }: MorePostsLinkProps) {
   return (
-    <Link href={post.slug}>
+    <Link href={`/${post.slug}`}>
       <a className="flex text-sm w-56 text-blue-700 hover:bg-blue-100 p-4 rounded flex-col items-center text-center gap-4">
         <img src={topics[post.topic].icon} className="px-2 w-16 py-4" />
         {arrow === "left" && <ImArrowLeft2 className="text-lg text-blue-500" color="inherit" />}
