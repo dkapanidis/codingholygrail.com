@@ -1,6 +1,6 @@
 import React from 'react'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
-import { ImArrowRight, ImArrowRight2 } from 'react-icons/im'
+import { ImArrowRight2 } from 'react-icons/im'
 
 type Props = { toc: string[] }
 function TableOfContents({ toc }: Props) {
