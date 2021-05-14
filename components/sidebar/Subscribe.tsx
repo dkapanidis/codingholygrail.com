@@ -9,7 +9,7 @@ function Subscribe() {
     e.preventDefault();
 
     // 3. Send a request to our API with the user's email address.
-    const res = await fetch('/.netlify/functions/subscribe', {
+    const res = await fetch('/api/subscribe', {
       body: JSON.stringify({
         email: email
       }),
