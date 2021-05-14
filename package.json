@@ -64,10 +64,5 @@
     "url-loader": "^4.1.1",
     "webpack": "^5.37.0"
   },
-  "browserslist": [
-    "defaults",
-    "not IE 11",
-    "maintained node versions"
-  ],
   "license": "ISC"
 }

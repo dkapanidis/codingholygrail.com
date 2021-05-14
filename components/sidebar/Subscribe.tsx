@@ -34,7 +34,8 @@ function Subscribe() {
   };
 
   return (
-    <form className="flex bg-white sticky top-10 flex-col border-blue-500 border-3 rounded-md text-center p-4 py-8 space-y-4" onSubmit={subscribe}>
+    <div className="flex sticky top-10">
+    <form className="flex bg-white relative flex-col border-blue-500 border-3 rounded-md text-center p-4 py-8 space-y-4" onSubmit={subscribe}>
       <BiMailSend className="text-blue-500 text-5xl absolute left-1/2 top-0 bg-white px-1 border-white transform -translate-x-1/2 -translate-y-1/2 "/>
       <h1 className="font-semibold text-lg">Subscribe to the Newsletter!</h1>
       <div className="text-sm font-light">
@@ -43,6 +44,7 @@ function Subscribe() {
       <input className="outline-none focus:ring-4 focus:border-blue-500 ring-blue-200 rounded-md text-sm border w-full px-2 p-1" id="email-input" name="email" placeholder="you@awesome.com" value={email} onChange={(e) => setEmail(e.currentTarget.value)} required type="email"/>
       <button className={`bg-blue-500 rounded p-1 text-white hover:bg-blue-600 outline-none focus:ring-4 focus:border-blue-500 ring-blue-200`} type="submit">{'✨ Sign me up! ✨'}</button>
     </form>
+    </div>
   );
 }
 
