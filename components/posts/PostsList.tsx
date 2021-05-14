@@ -26,7 +26,7 @@ function PostRow({ post }: PostRowProps) {
       <a className="flex py-2 hover:bg-gray-100 rounded translate transform group cursor-pointer">
         <article className="space-x-4 flex ">
           <div className="flex px-2 transition transform group-hover:scale-110">
-            <Image src={topic.icon} width={40} height={40} />
+            <Image src={topic.icon} alt={topic.id} width={40} height={40} />
           </div>
           <div className="flex flex-col">
             <div className="">

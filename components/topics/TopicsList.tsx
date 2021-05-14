@@ -21,7 +21,7 @@ function TopicRow({ topic }: TopicRowProps) {
     <Link href={`/topics/${topic.id}`}>
       <a className="flex p-5 border rounded hover:shadow-around transition-shadow translate transform group items-center cursor-pointer relative">
         <div className="flex px-2 w-16 absolute right-5">
-          <Image src={topic.icon} width={50} height={50} />
+          <Image src={topic.icon} alt={topic.id} width={50} height={50} />
         </div>
         <h2 className="text-xl font-bold tracking-wider text-gray-600 group-hover:text-blue-700">{topic.text}</h2>
       </a>

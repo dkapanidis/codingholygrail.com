@@ -32,7 +32,7 @@ const Post = ({ post, previous, next, toc, stats }: Props) => {
     <Layout title="Blog">
       <div className="flex flex-col lg:flex-row gap-10">
         <div className="flex-grow pt-4">
-          <PostBody post={post} stats={stats}/>
+          <PostBody post={post} stats={stats} />
           <MorePosts previous={previous} next={next} />
         </div>
         <Sidebar toc={toc} />
@@ -56,11 +56,12 @@ function MorePosts({ previous, next }: MorePostsProps) {
 
 type MorePostsLinkProps = { post: PostType, arrow: "left" | "right" }
 function MorePostsLink({ post, arrow }: MorePostsLinkProps) {
+  const topic = topics[post.topic]
   return (
     <Link href={`/${post.slug}`}>
       <a className="flex text-sm w-56 text-blue-700 hover:bg-blue-100 p-4 rounded flex-col items-center text-center gap-4">
         <div className="flex px-2 py-4">
-          <Image src={topics[post.topic].icon} width={50} height={50} />
+          <Image src={topic.icon} alt={topic.id} width={50} height={50} />
         </div>
         {arrow === "left" && <ImArrowLeft2 className="text-lg text-blue-500" color="inherit" />}
         {arrow === "right" && <ImArrowRight2 className="text-lg text-blue-500" color="inherit" />}

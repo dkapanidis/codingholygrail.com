@@ -13,7 +13,7 @@ function Title({ post, stats }: Props) {
   return (
     <div className="flex items-center gap-4">
       <div className="flex">
-        <Image src={topic.icon} width={60} height={60} />
+        <Image src={topic.icon} alt={topic.id} width={60} height={60} />
       </div>
       <div className="space-y-2">
         <div className="text-2xl font-semibold text-gray-900">{post.title}</div>
