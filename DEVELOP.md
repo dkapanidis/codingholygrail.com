@@ -20,8 +20,8 @@ npm run dev
 
 ## Deployment
 
-Continuous Deployment (CD) is done with [Netlify]:
+Continuous Deployment (CD) is done with [Vercel]:
 
-* from `master` branch to https://codingholygrail.com/.
+* from `main` branch to https://codingholygrail.com/.
 
-[Netlify]: https://www.netlify.com/
+[Netlify]: https://vercel.com/
