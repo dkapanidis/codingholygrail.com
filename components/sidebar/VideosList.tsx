@@ -1,5 +1,4 @@
 import videos from 'data/videos'
-import Image from 'next/image'
 import React, { useState } from 'react'
 import { ImYoutube } from 'react-icons/im'
 import Video from 'types/video'
@@ -31,7 +30,7 @@ function VideoRow({ video, onClick }: VideoRowProps) {
   return (
     <a className="flex p-2 hover:bg-gray-100 items-center cursor-pointer relative space-x-2" onClick={onClick}>
       <div className="flex">
-        <Image src={video.thumbnail} alt="video thumbnail" width={120} height={120} className="rounded-lg" />
+        <img src={video.thumbnail} alt="video thumbnail" width={120} height={120} className="rounded-lg" />
       </div>
       <h2 className="w-full text-sm font-normal tracking-wider text-gray-600">{video.title}</h2>
     </a>
