@@ -12,7 +12,7 @@ interface Props {
 
 const Index = ({ posts }: Props) => (
   <Layout title="Blog">
-    <div className="flex flex-col lg:flex-row space-x-20">
+    <div className="flex flex-col lg:flex-row lg:space-x-20">
       <div className="flex-grow">
         <PostsList posts={posts} />
         <TopicsList />
