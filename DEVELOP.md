@@ -24,4 +24,4 @@ Continuous Deployment (CD) is done with [Vercel]:
 
 * from `main` branch to https://codingholygrail.com/.
 
-[Netlify]: https://vercel.com/
+[Vercel]: https://vercel.com/
