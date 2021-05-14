@@ -10,16 +10,19 @@ import ErrorPage from "next/error";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { ImArrowLeft2, ImArrowRight2 } from "react-icons/im";
+import readingTime from 'reading-time';
 import PostType from "types/post";
+import ReadTimeResults from "types/readTimeResults";
 
 type Props = {
   post: PostType;
   previous?: PostType;
   next?: PostType;
   toc: string[];
+  stats: ReadTimeResults;
 };
 
-const Post = ({ post, previous, next, toc }: Props) => {
+const Post = ({ post, previous, next, toc, stats }: Props) => {
   const router = useRouter();
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
@@ -28,7 +31,7 @@ const Post = ({ post, previous, next, toc }: Props) => {
     <Layout title="Blog">
       <div className="flex flex-col lg:flex-row gap-20">
         <div className="flex-grow">
-          <Title post={post} />
+          <Title post={post} stats={stats}/>
           <PostBody content={post.content} />
           <MorePosts previous={previous} next={next} />
         </div>
@@ -81,6 +84,8 @@ export async function getStaticProps({ params }: Params) {
   const next = index > 0 && posts[index - 1]
   const previous = index < posts.length && posts[index + 1]
   const toc = await markdownToToc(post.content || "");
+  const stats = readingTime(post.content);
+
   return {
     props: {
       post: {
@@ -90,6 +95,7 @@ export async function getStaticProps({ params }: Params) {
       next: next || null,
       previous: previous || null,
       toc,
+      stats,
     },
   };
 }
