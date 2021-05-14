@@ -1,10 +1,11 @@
-import Link from 'next/link'
-import React from 'react'
+import videos from 'data/videos'
+import React, { useState } from 'react'
 import { ImYoutube } from 'react-icons/im'
 import Video from 'types/video'
-import videos from 'data/videos'
+import YoutubePlayer from './YoutubePlayer'
 
 function VideosList() {
+  const [videoId, setVideoId] = useState("")
   return (
     <div className="pt-4 relative">
       <div className="flex items-center pb-4 gap-4">
@@ -16,21 +17,20 @@ function VideosList() {
         </a>
       </div>
       <div className="flex flex-col gap-4">
-        {videos.map(video => <VideoRow key={video.content} video={video} />)}
+        {videos.map(video => <VideoRow key={video.content} video={video} onClick={() => setVideoId(video.id)} />)}
       </div>
+      {videoId !== "" && <YoutubePlayer videoId={videoId} cancel={() => setVideoId("")} />}
     </div>
   )
 }
 
-interface VideoRowProps { video: Video }
-function VideoRow({ video }: VideoRowProps) {
+interface VideoRowProps { video: Video, onClick(): void }
+function VideoRow({ video, onClick }: VideoRowProps) {
   return (
-    <Link href={video.content}>
-      <a className="flex p-2 hover:bg-gray-100 items-center cursor-pointer relative gap-2">
-        <img src={video.thumbnail} className="w-28 rounded-lg bg-red-500" />
-        <h2 className="text-sm font-normal tracking-wider text-gray-600">{video.title}</h2>
-      </a>
-    </Link>
+    <a className="flex p-2 hover:bg-gray-100 items-center cursor-pointer relative gap-2" onClick={onClick}>
+      <img src={video.thumbnail} className="w-28 rounded-lg bg-red-500" />
+      <h2 className="text-sm font-normal tracking-wider text-gray-600">{video.title}</h2>
+    </a>
   )
 }
 

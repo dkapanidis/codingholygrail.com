@@ -2,6 +2,7 @@ import Video from "types/video"
 
 const videos: Video[] = [
   {
+    id: "e1xuKr8mOcg",
     title: "React in Docker & Kubernetes walkthrough: Multistage build, push & deploy in Kubernetes",
     content: "https://www.youtube.com/watch?v=e1xuKr8mOcg",
     thumbnail: "https://i2.ytimg.com/vi/e1xuKr8mOcg/hqdefault.jpg",
@@ -9,6 +10,7 @@ const videos: Video[] = [
     published: '2021-04-06',
   },
   {
+    id: "aioc_cqob2U",
     title: "Building Slack clone using React, TailwindCSS & Supabase",
     content: "https://www.youtube.com/watch?v=aioc_cqob2U",
     thumbnail: "https://i2.ytimg.com/vi/aioc_cqob2U/hqdefault.jpg",
@@ -16,6 +18,7 @@ const videos: Video[] = [
     published: '2021-04-01',
   },
   {
+    id: "7ZMtfmjgQ7U",
     title: "Live coding a Slack clone from scratch using React, TailwindCSS & Firebase",
     content: "https://www.youtube.com/watch?v=7ZMtfmjgQ7U",
     thumbnail: "https://i4.ytimg.com/vi/7ZMtfmjgQ7U/hqdefault.jpg",
