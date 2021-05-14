@@ -7,6 +7,7 @@ import topics from "data/topics";
 import { getAllPosts } from "lib/api";
 import markdownToHtml, { markdownToToc } from "lib/markdownToHtml";
 import ErrorPage from "next/error";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { ImArrowLeft2, ImArrowRight2 } from "react-icons/im";
@@ -58,7 +59,9 @@ function MorePostsLink({ post, arrow }: MorePostsLinkProps) {
   return (
     <Link href={`/${post.slug}`}>
       <a className="flex text-sm w-56 text-blue-700 hover:bg-blue-100 p-4 rounded flex-col items-center text-center gap-4">
-        <img src={topics[post.topic].icon} className="px-2 w-16 py-4" />
+        <div className="flex px-2 py-4">
+          <Image src={topics[post.topic].icon} width={50} height={50} />
+        </div>
         {arrow === "left" && <ImArrowLeft2 className="text-lg text-blue-500" color="inherit" />}
         {arrow === "right" && <ImArrowRight2 className="text-lg text-blue-500" color="inherit" />}
         <span>{post.title}</span>
