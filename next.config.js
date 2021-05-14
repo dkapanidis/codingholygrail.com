@@ -1,16 +1,9 @@
 // next.config.js
-const withPlugins = require('next-compose-plugins');
-const optimizedImages = require('next-optimized-images');
-
-module.exports = withPlugins([
-  [optimizedImages, {
-    /* config for next-optimized-images */
-  }],
-
-  // your other plugins here
-  {
-    future: {
-      webpack5: true,
-    },
-  }
-]);
+module.exports = {
+  future: {
+    webpack5: true,
+  },
+  images: {
+    domains: ['i2.ytimg.com' ,'i4.ytimg.com'],
+  },
+}

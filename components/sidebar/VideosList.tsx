@@ -1,4 +1,5 @@
 import videos from 'data/videos'
+import Image from 'next/image'
 import React, { useState } from 'react'
 import { ImYoutube } from 'react-icons/im'
 import Video from 'types/video'
@@ -28,8 +29,10 @@ interface VideoRowProps { video: Video, onClick(): void }
 function VideoRow({ video, onClick }: VideoRowProps) {
   return (
     <a className="flex p-2 hover:bg-gray-100 items-center cursor-pointer relative gap-2" onClick={onClick}>
-      <img src={video.thumbnail} className="w-28 rounded-lg bg-red-500" />
-      <h2 className="text-sm font-normal tracking-wider text-gray-600">{video.title}</h2>
+      <div className="flex rounded-lg">
+        <Image src={video.thumbnail} width={120} height={120} />
+      </div>
+      <h2 className="w-80 text-sm font-normal tracking-wider text-gray-600">{video.title}</h2>
     </a>
   )
 }
