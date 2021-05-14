@@ -6,7 +6,7 @@ import Image from 'next/image'
 export default function Header() {
   return (
     <div className="max-w-7xl mx-auto">
-      <div className="flex pt-6 pb-4 items-center">
+      <div className="flex pt-6 h-20 pb-4 items-center">
         <Link href="/">
           <a className="flex items-center text-lg font-mono font-semibold tracking-widest text-gray-800 gap-x-2">
             <div className="transition transform self-center hover:scale-125">
