@@ -1,7 +1,6 @@
-import Link from "next/link"
-import React from "react"
+import Link from "next/link";
+import React from "react";
 import { ImTwitter, ImYoutube } from "react-icons/im";
-import Image from 'next/image'
 
 export default function Header() {
   return (
@@ -10,7 +9,7 @@ export default function Header() {
         <Link href="/">
           <a className="flex items-center text-lg font-mono font-semibold tracking-widest text-gray-800 space-x-2">
             <div className="transition transform self-center hover:scale-125">
-              <Image
+              <img
                 src="/images/grail.png"
                 alt="logo"
                 width={30}
