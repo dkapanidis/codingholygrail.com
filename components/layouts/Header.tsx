@@ -1,6 +1,7 @@
 import Link from "next/link"
 import React from "react"
 import { ImTwitter, ImYoutube } from "react-icons/im";
+import Image from 'next/image'
 
 export default function Header() {
   return (
@@ -9,6 +10,13 @@ export default function Header() {
         <div className="flex py-6 items-center">
           <Link href="/">
             <a className="flex flex-grow text-lg font-mono font-semibold tracking-widest text-gray-800">
+              <Image
+                src="/images/grail.png"
+                alt="logo"
+                width={30}
+                height={50}
+                className="transition transform hover:scale-125"
+              />
               <img src="/images/grail.png" width="30" className="mr-6 transition transform hover:scale-125" />
               <span>Coding Holy Grail</span>
             </a>
