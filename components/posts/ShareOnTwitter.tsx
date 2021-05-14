@@ -17,7 +17,7 @@ function ShareOnTwitter({post}: Props) {
         border border-gray-100 shadow-lg
         bg-white text-gray-800 p-2
         rounded-full hover:border-blue-100 hover:bg-blue-100
-        flex items-center gap-2 text-sm transform -translate-x-1/2">
+        flex items-center space-x-2 text-sm transform -translate-x-1/2">
       <span>Share on Twitter</span>
       <ImTwitter fill="#1da1f2" />
     </a>

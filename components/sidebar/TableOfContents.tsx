@@ -6,10 +6,10 @@ type Props = { toc: string[] }
 function TableOfContents({ toc }: Props) {
   return (
     <div className="pt-4 relative">
-      <div className="flex items-center pb-4 gap-4">
+      <div className="flex items-center pb-4">
         <h1 className="flex flex-grow whitespace-nowrap text-lg font-semibold items-center">Article Content</h1>
       </div>
-      <div className="flex flex-col text-blue-200">
+      <div className="flex flex-col text-blue-200 space-y-1">
         {toc.map(title => <TitleRow key={title} title={title} />)}
       </div>
     </div>
@@ -23,7 +23,7 @@ function TitleRow({ title }: TitleRowProps) {
     <AnchorLink
       offset={50}
       href={`#${link}`}
-      className="flex items-center gap-x-2 text-blue-400 font-light rounded px-2 py-1 hover:bg-blue-100"
+      className="flex items-center space-x-2 text-blue-400 font-light rounded px-2 py-1 hover:bg-blue-100"
     >
       <ImArrowRight2 />
       <span className="text-gray-800">{title}</span>

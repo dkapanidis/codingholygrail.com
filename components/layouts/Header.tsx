@@ -8,7 +8,7 @@ export default function Header() {
     <div className="max-w-7xl mx-auto">
       <div className="flex pt-6 h-20 pb-4 items-center">
         <Link href="/">
-          <a className="flex items-center text-lg font-mono font-semibold tracking-widest text-gray-800 gap-x-2">
+          <a className="flex items-center text-lg font-mono font-semibold tracking-widest text-gray-800 space-x-2">
             <div className="transition transform self-center hover:scale-125">
               <Image
                 src="/images/grail.png"
@@ -22,7 +22,7 @@ export default function Header() {
         </Link>
 
         <div className="flex-grow" />
-        <div className="flex text-2xl gap-1">
+        <div className="flex text-2xl space-x-1">
           <LinkButton to="https://www.youtube.com/channel/UCJxmcXMZnBtxzEcjts2y5dA">
             <ImYoutube fill="red" />
           </LinkButton>

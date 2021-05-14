@@ -11,7 +11,7 @@ interface Props { post: Post, stats: ReadTimeResults }
 function Title({ post, stats }: Props) {
   const topic = topics[post.topic]
   return (
-    <div className="flex items-center gap-4">
+    <div className="flex items-center space-x-4">
       <div className="flex">
         <Image src={topic.icon} alt={topic.id} width={60} height={60} />
       </div>
@@ -30,7 +30,7 @@ function Subtitle({ post, stats }: SubtitleProps) {
       <DateFormatter dateString={post.date} />
       <span>{stats.text}</span>
       <Link href={`https://github.com/dkapanidis/codingholygrail.com/edit/main/content/posts/${post.slug}/README.md`}>
-        <a className="flex text-gray-800 items-center gap-1">
+        <a className="flex text-gray-800 items-center space-x-1">
           <span>Found an error? Edit the article </span>
           <ImGithub />
         </a>

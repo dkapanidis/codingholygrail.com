@@ -12,7 +12,7 @@ function PostsList({ posts, topic }: Props) {
       {!topic && <h1 className="text-lg pb-2 font-semibold">Latest Posts 📝</h1>}
       {topic && <h1 className="text-lg pb-2 font-semibold">Posts about <i>{topics[topic].text}</i></h1>}
       {topic && <h1 className="text-sm text-gray-600 pb-2"><i>{topics[topic].description}</i></h1>}
-      <div className="flex flex-col gap-4">{posts.map(post => <PostRow key={post.slug} post={post} />)}</div>
+      <div className="flex flex-col space-y-4">{posts.map(post => <PostRow key={post.slug} post={post} />)}</div>
     </div>
   )
 }
