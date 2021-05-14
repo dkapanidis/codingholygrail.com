@@ -1,5 +1,6 @@
 import DateFormatter from '@components/date/date-formatter'
 import topics from 'data/topics'
+import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { ImGithub } from 'react-icons/im'
@@ -11,7 +12,9 @@ function Title({ post, stats }: Props) {
   const topic = topics[post.topic]
   return (
     <div className="flex items-center gap-4">
-      <img src={topic.icon} className="px-2 w-24" />
+      <div className="flex">
+        <Image src={topic.icon} width={60} height={60} />
+      </div>
       <div className="space-y-2">
         <div className="text-2xl font-semibold text-gray-900">{post.title}</div>
         <Subtitle post={post} stats={stats} />

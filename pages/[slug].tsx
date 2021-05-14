@@ -29,10 +29,9 @@ const Post = ({ post, previous, next, toc, stats }: Props) => {
   }
   return (
     <Layout title="Blog">
-      <div className="flex flex-col lg:flex-row gap-20">
-        <div className="flex-grow">
-          <Title post={post} stats={stats}/>
-          <PostBody content={post.content} />
+      <div className="flex flex-col lg:flex-row gap-10">
+        <div className="flex-grow pt-4">
+          <PostBody post={post} stats={stats}/>
           <MorePosts previous={previous} next={next} />
         </div>
         <Sidebar toc={toc} />
@@ -45,7 +44,7 @@ const Post = ({ post, previous, next, toc, stats }: Props) => {
 type MorePostsProps = { previous?: PostType, next?: PostType }
 function MorePosts({ previous, next }: MorePostsProps) {
   return (
-    <div className='flex w-full py-10 px-20'>
+    <div className='flex w-full py-10 px-10'>
       <div className="flex-grow" />
       {previous && <MorePostsLink post={previous} arrow="left" />}
       {next && <MorePostsLink post={next} arrow="right" />}
