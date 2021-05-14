@@ -32,7 +32,7 @@ function VideoRow({ video, onClick }: VideoRowProps) {
       <div className="flex">
         <Image src={video.thumbnail} alt="video thumbnail" width={120} height={120} className="rounded-lg" />
       </div>
-      <h2 className="w-80 text-sm font-normal tracking-wider text-gray-600">{video.title}</h2>
+      <h2 className="w-full text-sm font-normal tracking-wider text-gray-600">{video.title}</h2>
     </a>
   )
 }

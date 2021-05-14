@@ -8,7 +8,7 @@ function TopicsList() {
   return (
     <div className="pt-10">
       <h1 className="pb-4 text-lg font-semibold">Posts by Topics 👨‍💻</h1>
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid sm:grid-cols-2 gap-4">
         {Object.keys(topics).map((topic) => <TopicRow key={topic} topic={topics[topic]} />)}
       </div>
     </div>
