@@ -1,6 +1,7 @@
 import React from 'react';
-import 'styles/index.css';
+import 'styles/globals.css';
 import 'styles/prose.css';
+
 
 type MyAppProps = { Component: any, pageProps: any }
 
