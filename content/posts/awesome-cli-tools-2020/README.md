@@ -32,7 +32,7 @@ I like to keep my terminal lean and productive, here is a list of some awesome t
 
 I use [Brew](https://brew.sh/) for installing everything on my Mac. To install brew itself simply run:
 
-```sh
+```shell
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 ```
 
