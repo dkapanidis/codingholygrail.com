@@ -454,7 +454,7 @@ Note that we only talk about unit tests here, since integration tests include ot
 Let's take a look at the final image size:
 
 ```shellsession
-❯ docker images golang-sample
+$ docker images golang-sample
 REPOSITORY      TAG       IMAGE ID       CREATED        SIZE
 golang-sample   latest    9a44e42117a8   23 hours ago   22.8MB
 ```
@@ -517,7 +517,7 @@ CMD ["/usr/local/bin/app"]
 Let's see the final result!
 
 ```shellsession
-❯ docker images golang-sample
+$ docker images golang-sample
 REPOSITORY      TAG       IMAGE ID       CREATED         SIZE
 golang-sample   latest    461827301dda   3 seconds ago   4.77MB
 ```
