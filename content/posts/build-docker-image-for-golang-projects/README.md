@@ -449,8 +449,81 @@ The build process is now taking longer (in my machine it was 27 secs without tes
 
 Note that we only talk about unit tests here, since integration tests include other services and are better suited in the CI/CD workflow instead of embedding them inside the image build process.
 
+## Reduce Image Size
+
+Let's take a look at the final image size:
+
+```shellsession
+❯ docker images golang-sample
+REPOSITORY      TAG       IMAGE ID       CREATED        SIZE
+golang-sample   latest    9a44e42117a8   23 hours ago   22.8MB
+```
+
+It's not bad, but we can still do better. We currently used `alpine` as base image, but go generates [mostly](https://oddcode.daveamit.com/2018/08/16/statically-compile-golang-binary/) static binaries so we can also use [distroless] static flavor or even [scratch]:
+
+* [alpine] contains a full OS including a shell to exec into. Use this if you want to enter and debug the container.
+* [distroless] static contains ca-certificates, /etc/password entry for a root user, /tmp directory, and timezone data. Use this if your app needs any of the above.
+* [scratch] is an empty container image, nothing is included as base.
+
+[alpine]: https://hub.docker.com/_/alpine
+[distroless]: https://github.com/GoogleContainerTools/distroless
+[scratch]: https://hub.docker.com/_/scratch
+
+In order to make sure the final binaries are statically linked we need to add `CGO_ENABLED=0` to the build process:
+
+```diff
+-RUN go build -o ./out/app .
++RUN CGO_ENABLED=0 go build -o ./out/app .
+```
+
+| Runtime Image                     | Final Size |
+| --------------------------------- | ---------- |
+| alpine:3.9                        | 22.8MB     |
+| gcr.io/distroless/static-debian10 | 19.1MB     |
+| scratch                           | 17.3MB     |
+
+Now let's take a look at the Go binary itself. We can reduce it's own size by adding ldflags that strip debug info from the binaries, and we can also use `upx` to further compress the final binary.
+
+| Parameters         | Compressed with UPX | Final Size |
+| ------------------ | ------------------- | ---------- |
+| None               | No                  | 15.0 MB    |
+| `-ldflags="-s -w"` | No                  | 12.0 MB    |
+| None               | Yes                 |  7.2 MB    |
+| `-ldflags="-s -w"` | Yes                 |  4.1 MB    |
+
+So let's put this to work in our Dockerfile
+
+```dockerfile
+# Dockerfile
+
+# Build image
+FROM golang:1.14.2-alpine AS build
+RUN apk add upx
+WORKDIR /app
+COPY go.mod go.sum .
+RUN go mod download
+COPY . .
+RUN CGO_ENABLED=0 go test -v ./...
+RUN CGO_ENABLED=0 go build -ldflags="-s -w" -o ./out/app .
+RUN upx ./out/app
+
+# Runtime image
+FROM scratch
+COPY --from=build /app/out/app /usr/local/bin/app
+EXPOSE 8080
+CMD ["/usr/local/bin/app"]
+```
+
+Let's see the final result!
+
+```shellsession
+❯ docker images golang-sample
+REPOSITORY      TAG       IMAGE ID       CREATED         SIZE
+golang-sample   latest    461827301dda   3 seconds ago   4.77MB
+```
+
 ## Conclusion
 
-In this tutorial you created a simple golang app and gradually packaged it inside a container image, following best practices to avoid injecting the source code in the final build, optimize build time by taking advantage of the cache for dependencies, and added unit testing during the build process to avoid delivering broken code to production.
+In this tutorial you created a simple golang app and gradually packaged it inside a container image, following best practices to avoid injecting the source code in the final build, optimize build time by taking advantage of the cache for dependencies, added unit testing during the build process to avoid delivering broken code to production and optimized the final image size.
 
 Now for your next Go project you know how to fine-tune your `Dockerfile` 🙌️.
