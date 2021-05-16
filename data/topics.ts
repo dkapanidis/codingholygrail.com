@@ -19,6 +19,12 @@ const topics: { [key: string]: Topic } = {
     description: 'Tips & tricks on how to tune the terminal to boost your productivity.',
     icon: '/assets/topics/terminal.svg',
   },
+  "coding": {
+    id: 'coding',
+    text: 'Coding',
+    description: 'Coding tips and tricks.',
+    icon: '/assets/topics/coding.svg',
+  },
   "kubernetes": {
     id: 'kubernetes',
     text: 'Kubernetes',
