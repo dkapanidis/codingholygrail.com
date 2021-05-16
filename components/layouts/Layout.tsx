@@ -52,7 +52,7 @@ export default function Layout({ children, title }: LayoutProps) {
         <meta property="og:description" content="Coding Holy Grail | content about containers, cloud native, CI/CD, devops and microservices." />
         <meta property="og:url" content="https://codingholygrail.com" />
 
-        <link rel="alternate" type="application/rss+xml" href="https://codingholygrail.com/feed/index.xml" title="Coding Holy Grail | content about containers, cloud native, CI/CD, devops and microservices." />
+        <link rel="alternate" type="application/rss+xml" href="https://www.codingholygrail.com/rss/feed.xml" title="Coding Holy Grail | content about containers, cloud native, CI/CD, devops and microservices." />
         <link
           href={`https://unpkg.com/prismjs@0.0.1/themes/prism-tomorrow.css`}
           rel="stylesheet"
