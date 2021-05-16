@@ -476,11 +476,11 @@ In order to make sure the final binaries are statically linked we need to add `C
 +RUN CGO_ENABLED=0 go build -o ./out/app .
 ```
 
-| Runtime Image                     | Final Size |
-| --------------------------------- | ---------- |
-| alpine:3.9                        | 22.8MB     |
-| gcr.io/distroless/static-debian10 | 19.1MB     |
-| scratch                           | 17.3MB     |
+| Runtime Image                     | Runtime Size | Final Size |
+| --------------------------------- | ------------ | ---------- |
+| alpine:3.9                        | 5.61 MB      | 22.8 MB    |
+| gcr.io/distroless/static-debian10 | 1.82 MB      | 19.1 MB    |
+| scratch                           |    0 MB      | 17.3 MB    |
 
 Now let's take a look at the Go binary itself. We can reduce it's own size by adding ldflags that strip debug info from the binaries, and we can also use `upx` to further compress the final binary.
 
