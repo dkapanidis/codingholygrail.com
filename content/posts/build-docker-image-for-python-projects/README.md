@@ -8,7 +8,7 @@ author:
   picture: '/images/dkapanidis.jpg'
 ogImage:
   url: '/posts/12-awesome-cli-tools/banner.png'
-topic: 'golang'
+topic: 'coding'
 ---
 
 Using Python and want to run your projects in containers? Let's take a close look on how to build an optimized Dockerfile for Python projects.
