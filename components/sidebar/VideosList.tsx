@@ -29,8 +29,8 @@ interface VideoRowProps { video: Video, onClick(): void }
 function VideoRow({ video, onClick }: VideoRowProps) {
   return (
     <a className="flex p-2 hover:bg-gray-100 items-center cursor-pointer relative space-x-2" onClick={onClick}>
-      <div className="flex">
-        <img src={video.thumbnail} alt="video thumbnail" width={120} height={120} className="rounded-lg" />
+      <div className="flex flex-none">
+        <img src={video.thumbnail} alt="video thumbnail" width={120} height={120} className="rounded-lg object-cover h-20" />
       </div>
       <h2 className="w-full text-sm font-normal tracking-wider text-gray-600">{video.title}</h2>
     </a>
