@@ -18,8 +18,8 @@ async function generateRssFeed(posts: Post[]) {
   const feed = new Feed({
     title: `Coding Holy Grail`,
     description: 'Content about containers, cloud native, CI/CD, devops and microservices',
-    id: baseUrl,
-    link: baseUrl,
+    id: `${baseUrl}/`,
+    link: `${baseUrl}/`,
     language: 'en',
     image: `${baseUrl}/images/grail.png`,
     favicon: `${baseUrl}/favicon.ico`,
