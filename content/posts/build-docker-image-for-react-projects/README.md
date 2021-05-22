@@ -31,6 +31,9 @@ $ docker -v
 Docker version 20.10.6, build 370c289
 ```
 
+[Node]: https://nodejs.org/
+[Docker]: https://www.docker.com/
+
 ## Simple React App
 
 First, let's bootstrap our project using `create-react-app`, I'm using the typescript template as an example:
