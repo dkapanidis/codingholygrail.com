@@ -2,9 +2,12 @@
 title: 'Building an ETL Workflow from scratch'
 excerpt: "Use scrapy, AWS S3, AWS SQS, and plain python to build a complete ETL workflow."
 date: '2021-07-31'
+coverImage: '/posts/building-an-etl-workflow/banner.png'
 author:
   name: Dimitris Kapanidis
   picture: '/images/dkapanidis.jpg'
+ogImage:
+  url: '/posts/building-an-etl-workflow/banner.png'
 topic: 'python'
 ---
 
