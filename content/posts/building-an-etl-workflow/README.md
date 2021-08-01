@@ -8,7 +8,7 @@ author:
   picture: '/images/dkapanidis.jpg'
 ogImage:
   url: '/posts/building-an-etl-workflow/banner.png'
-topic: 'python'
+topic: 'coding'
 ---
 
 I've been working lately with ETL workflows, so I'd like to take some time to explain how to build a simple one from scratch. Note that you will need an AWS account for this tutorial.
