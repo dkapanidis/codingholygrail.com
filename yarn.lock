@@ -270,15 +270,15 @@
   resolved "https://registry.npmjs.org/@emotion/memoize/-/memoize-0.7.5.tgz"
   integrity sha512-igX9a37DR2ZPGYtV6suZ6whr8pTFtyHL3K/oLUotxpSVO2ASaprmAe2Dkq7tBo7CRY7MMDrAa9nuQP9/YG8FxQ==
 
-"@emotion/react@^11.1.5":
-  version "11.4.0"
-  resolved "https://registry.npmjs.org/@emotion/react/-/react-11.4.0.tgz"
-  integrity sha512-4XklWsl9BdtatLoJpSjusXhpKv9YVteYKh9hPKP1Sxl+mswEFoUe0WtmtWjxEjkA51DQ2QRMCNOvKcSlCQ7ivg==
+"@emotion/react@^11.4.0":
+  version "11.4.1"
+  resolved "https://registry.yarnpkg.com/@emotion/react/-/react-11.4.1.tgz#a1b0b767b5bad57515ffb0cad9349614d27f4d57"
+  integrity sha512-pRegcsuGYj4FCdZN6j5vqCALkNytdrKw3TZMekTzNXixRg4wkLsU5QEaBG5LC6l01Vppxlp7FE3aTHpIG5phLg==
   dependencies:
     "@babel/runtime" "^7.13.10"
     "@emotion/cache" "^11.4.0"
     "@emotion/serialize" "^1.0.2"
-    "@emotion/sheet" "^1.0.1"
+    "@emotion/sheet" "^1.0.2"
     "@emotion/utils" "^1.0.0"
     "@emotion/weak-memoize" "^0.2.5"
     hoist-non-react-statics "^3.3.1"
@@ -294,10 +294,15 @@
     "@emotion/utils" "^1.0.0"
     csstype "^3.0.2"
 
-"@emotion/sheet@^1.0.0", "@emotion/sheet@^1.0.1":
+"@emotion/sheet@^1.0.0":
   version "1.0.1"
   resolved "https://registry.npmjs.org/@emotion/sheet/-/sheet-1.0.1.tgz"
   integrity sha512-GbIvVMe4U+Zc+929N1V7nW6YYJtidj31lidSmdYcWozwoBIObXBnaJkKNDjZrLm9Nc0BR+ZyHNaRZxqNZbof5g==
+
+"@emotion/sheet@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@emotion/sheet/-/sheet-1.0.2.tgz#1d9ffde531714ba28e62dac6a996a8b1089719d0"
+  integrity sha512-QQPB1B70JEVUHuNtzjHftMGv6eC3Y9wqavyarj4x4lg47RACkeSfNo5pxIOKizwS9AEFLohsqoaxGQj4p0vSIw==
 
 "@emotion/unitless@^0.7.5":
   version "0.7.5"
@@ -4767,14 +4772,14 @@ react-anchor-link-smooth-scroll@^1.0.12:
   resolved "https://registry.npmjs.org/react-anchor-link-smooth-scroll/-/react-anchor-link-smooth-scroll-1.0.12.tgz"
   integrity sha512-aaY+9X0yh8YnC0jBfoTKpsiCLdO/Y6pCltww+VB+NnTBPDOvnIdnp1AlazajsDitc1j+cVSQ+yNtaVeTIMQbxw==
 
-react-awesome-reveal@^3.7.1:
-  version "3.7.1"
-  resolved "https://registry.npmjs.org/react-awesome-reveal/-/react-awesome-reveal-3.7.1.tgz"
-  integrity sha512-yFrfs38X3SW1wZqo8777Vki+ruXoscnaFG2zlcjFlogyQ6TlXzRCtrQyjqiiLhsq85t9jykv9koJmCuTf7Xu+g==
+react-awesome-reveal@^3.8.1:
+  version "3.8.1"
+  resolved "https://registry.yarnpkg.com/react-awesome-reveal/-/react-awesome-reveal-3.8.1.tgz#54ae69f835a6654fc096b49df6430138ce3d17f6"
+  integrity sha512-cB+XubgAa7QJ9ibkHePiVGTOzRKokqdDOP+yLfQtw5uu+xsAR/kwktLntMZev+1GBz2NhlcpbYvKqEbVIkKfLw==
   dependencies:
-    "@emotion/react" "^11.1.5"
-    react-intersection-observer "^8.31.0"
-    react-is "^17.0.1"
+    "@emotion/react" "^11.4.0"
+    react-intersection-observer "^8.32.0"
+    react-is "^17.0.2"
 
 react-dom@^17.0.2:
   version "17.0.2"
@@ -4802,17 +4807,17 @@ react-icons@^4.2.0:
   resolved "https://registry.npmjs.org/react-icons/-/react-icons-4.2.0.tgz"
   integrity sha512-rmzEDFt+AVXRzD7zDE21gcxyBizD/3NqjbX6cmViAgdqfJ2UiLer8927/QhhrXQV7dEj/1EGuOTPp7JnLYVJKQ==
 
-react-intersection-observer@^8.31.0, react-intersection-observer@^8.31.1:
-  version "8.31.1"
-  resolved "https://registry.npmjs.org/react-intersection-observer/-/react-intersection-observer-8.31.1.tgz"
-  integrity sha512-Q4OH2aUXcEi6tPBBgOBjfodoRM68wikXqqbPf8FaY4VBMcSACbxulfkW/OqcfLYfSAOEPGvxN+NCn9PqBgAOfQ==
+react-intersection-observer@^8.32.0, react-intersection-observer@^8.32.1:
+  version "8.32.1"
+  resolved "https://registry.yarnpkg.com/react-intersection-observer/-/react-intersection-observer-8.32.1.tgz#9b949871eb35eb1fc730732bbf8fcfaaaf3f5b02"
+  integrity sha512-FOmMkMw7MeJ8FkuADpU8TRcvGuTvPB+DRkaikS1QXcWArYLCWC3mjRorq2XeRGBuqmaueOBd27PUazTu9AgInw==
 
 react-is@16.13.1, react-is@^16.7.0, react-is@^16.8.1:
   version "16.13.1"
   resolved "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
-react-is@^17.0.0, react-is@^17.0.1:
+react-is@^17.0.0, react-is@^17.0.2:
   version "17.0.2"
   resolved "https://registry.npmjs.org/react-is/-/react-is-17.0.2.tgz"
   integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
