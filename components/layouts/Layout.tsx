@@ -1,11 +1,16 @@
 import Footer from '@components/layouts/Footer'
 import Header from '@components/layouts/Header'
+import { getFirestore } from '@firebase/firestore'
 import { initGA, logPageView } from '@utils/utils/analytics'
 import Head from 'next/head'
 import React, { useEffect } from 'react'
+import { FirestoreProvider, useFirebaseApp } from 'reactfire'
 
 type LayoutProps = { children: any, title: string }
 export default function Layout({ children, title }: LayoutProps) {
+  const app = useFirebaseApp()
+  const firestore = getFirestore(app);
+
   useEffect(() => {
     initGA()
     logPageView()
@@ -62,9 +67,11 @@ export default function Layout({ children, title }: LayoutProps) {
       </Head>
       <div className="px-4 sm:px-8">
         <Header />
-        <div className="relative mx-auto max-w-7xl">
-          {children}
-        </div>
+        <FirestoreProvider sdk={firestore}>
+          <div className="relative mx-auto max-w-7xl">
+            {children}
+          </div>
+        </FirestoreProvider>
         <Footer />
       </div>
     </>

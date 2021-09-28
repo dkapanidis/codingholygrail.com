@@ -1,18 +1,20 @@
-import db from "lib/firebase";
+import { addDoc, collection } from "@firebase/firestore";
 import React, { useRef, useState } from "react";
 import { BiMailSend } from "react-icons/bi";
-import firebase from "firebase";
+import { useFirestore } from "reactfire";
 
 function Subscribe() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
+  const col = collection(useFirestore(), "subs");
+
   async function subscribe(event: any) {
     event?.preventDefault();
     try {
-      db.collection("subs").add({
+      addDoc(col, {
         email,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        timestamp: new Date(),
       });
       // clear the input value and show a success message
       // we don't await for confirmation, this message is shown optimistically.
@@ -20,7 +22,7 @@ function Subscribe() {
       setMessage("Success! 🎉 You are now subscribed to the newsletter.");
     } catch (error) {
       // if there was an error, update the message in state.
-      setMessage(error);
+      setMessage(error as string);
     }
   }
 
