@@ -1,5 +1,5 @@
 import React from 'react'
-import AnchorLink from 'react-anchor-link-smooth-scroll'
+import AnchorLink from 'react-anchor-link-smooth-scroll-v2'
 import { ImArrowRight2 } from 'react-icons/im'
 
 type Props = { toc: string[] }
@@ -20,7 +20,7 @@ type TitleRowProps = { title: string }
 function TitleRow({ title }: TitleRowProps) {
   const link = title.toLowerCase().replace(/ /g, '-').replace(/\./g, '').replace(/\//g, "").replace(/\+/g, "").replace(/\(/g, "").replace(/\)/g, "")
   return (
-    <AnchorLink
+    <AnchorLink     
       offset={50}
       href={`#${link}`}
       className="flex items-center space-x-2 text-blue-400 font-light rounded px-2 py-1 hover:bg-blue-100"

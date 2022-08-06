@@ -4760,6 +4760,11 @@ rc@^1.0.1, rc@^1.1.6, rc@^1.2.1, rc@^1.2.8:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-anchor-link-smooth-scroll-v2@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/react-anchor-link-smooth-scroll-v2/-/react-anchor-link-smooth-scroll-v2-2.0.1.tgz#7e9d0acd16a20d50d0c1d2b167af619c0b58142a"
+  integrity sha512-Xx9/u2qPiG//GteW9tz8u6pNjPNzlP0vMjFPR1sVoPydmdJhGm/hFXGKIEnzeeKuqisKYw7CKrIZDUD7Wy4HHg==
+
 react-anchor-link-smooth-scroll@^1.0.12:
   version "1.0.12"
   resolved "https://registry.yarnpkg.com/react-anchor-link-smooth-scroll/-/react-anchor-link-smooth-scroll-1.0.12.tgz#5cd49c73e74be6d20b4c05a5e5c72d07ebbedac7"
