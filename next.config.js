@@ -1,6 +1,5 @@
 // next.config.js
 module.exports = {
-  webpack5: true,
   images: {
     domains: ['i2.ytimg.com' ,'i4.ytimg.com'],
   },
