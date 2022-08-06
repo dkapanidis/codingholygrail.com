@@ -1,5 +1,4 @@
 import { firebaseConfig } from 'lib/firebase';
-import React from 'react';
 import { FirebaseAppProvider } from 'reactfire';
 import 'styles/globals.css';
 import 'styles/prose.css';
