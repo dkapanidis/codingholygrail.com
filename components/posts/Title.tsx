@@ -25,7 +25,7 @@ function Title({ post, stats }: Props) {
 interface SubtitleProps { post: Post, stats: ReadTimeResults }
 function Subtitle({ post, stats }: SubtitleProps) {
   return (
-    <div className="flex items-center text-xs text-gray-400 space-x-4">
+    <div className="flex items-center text-xs italic text-gray-600 space-x-4">
       <DateFormatter dateString={post.date} />
       <span>{stats.text}</span>
       <Link href={`https://github.com/dkapanidis/codingholygrail.com/edit/main/content/posts/${post.slug}/README.md`}>
