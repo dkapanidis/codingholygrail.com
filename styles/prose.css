@@ -9,6 +9,3 @@
 .prose code::before,.prose code::after {
   content: none;
 }
-.prose code {
-  @apply bg-gray-200 text-gray-800 font-light px-1.5 rounded-sm;
-}
