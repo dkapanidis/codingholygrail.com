@@ -16,13 +16,11 @@ export default function Layout({ children, title }: LayoutProps) {
     logPageView()
   }, [])
 
-  const titleText = `Coding Holy Grail | ${title}`;
-
   return (
     <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>{titleText}</title>
+        <title>Coding Holy Grail | {title}</title>
 
         <meta httpEquiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <meta httpEquiv="Content-Language" content="en" />

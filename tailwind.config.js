@@ -1,5 +1,8 @@
 module.exports = {
-  content: ['./pages/**/*.tsx', './components/**/*.tsx', './pages/**/*.jsx', './components/**/*.jsx'],
+  mode: 'jit',
+  purge: {
+    content: ['./pages/**/*.tsx', './components/**/*.tsx', './pages/**/*.jsx', './components/**/*.jsx'],
+  },
   theme: {
     extend: {
       boxShadow: {

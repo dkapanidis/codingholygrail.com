@@ -4,6 +4,7 @@ import Sidebar from "@components/sidebar/Sidebar";
 import TopicsList from "@components/topics/TopicsList";
 import { getAllPosts } from "lib/api";
 import { useRouter } from "next/router";
+import React from "react";
 import Post from "types/post";
 
 interface Props {
