@@ -30,6 +30,12 @@ const topics: { [key: string]: Topic } = {
     text: 'Kubernetes',
     description: 'Kubernetes is the de facto platform for running containerized workload on the cloud or your own bare metal.',
     icon: '/assets/topics/kubernetes.svg',
+  },
+  "ai": {
+    id: 'ai',
+    text: 'AI',
+    description: 'Artificial Intelligence, Machine Learning, and AI integration patterns for modern applications.',
+    icon: '/assets/topics/ai.svg',
   }
 }
 
